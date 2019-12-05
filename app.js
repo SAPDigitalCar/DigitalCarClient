@@ -9,8 +9,31 @@ App({
     // 登录
     wx.login({
       success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-      }
+        if (res.code) {
+          this.globalData.status = 1
+          wx.request({
+            url: '/api/system/wx?code=' + res.code,
+            method: 'get',
+            success: res => {
+              if (res.statusCode == 200 && res.data.unionid) {//获取unionId成功
+                this.goLogin(res.data.unionid);
+              }
+            },
+            fail: function (error) {
+              console.log(error)
+            }
+          });
+        } else {
+          // 微信登录失败
+          wx.showToast({
+            title: '网络异常，请稍后重试',
+            duration: 2000,
+            icon: 'none'
+          })
+        }
+      },
+      fail: res => { },
+      complete: res => { },
     })
     // 获取用户信息
     wx.getSetting({
@@ -33,7 +56,50 @@ App({
       }
     })
   },
+  goLogin: function (unionid) {
+    let that = this;
+    ajax.request({
+      url: '/api/user/login',
+      data: {
+        LoginType: 'weixin',
+        unionid: unionid
+      },
+      method: 'post',
+      success: res => {
+        // unionid保存在全局，保存手机号
+        that.globalData.unionid = unionid;
+        if (that.unionidCallback) {
+          that.unionidCallback(unionid);
+        }
+        if (res.statusCode == 200) {
+          if (res.data.code == 0) {
+            //  登录成功，保存相关信息，跳转首页
+            wx.redirectTo({
+              url: "/pages/index"
+            })
+          } else if (res.data.code == -1){
+            // 完善用户信息
+          } else{
+            wx.showToast({
+              title: '网络异常，请稍后重试',
+              duration: 10000,
+              icon: 'none'
+            })
+          }
+        }
+      },
+      fail: function (error) {
+        console.log(error)
+        wx.showToast({
+          title: '登录失败，请检查网络稍后重试',
+          duration: 2000,
+          icon: 'none'
+        })
+      }
+    });
+  },
   globalData: {
-    userInfo: null
+    unionid: '',
+    userInfo: null,
   }
 })

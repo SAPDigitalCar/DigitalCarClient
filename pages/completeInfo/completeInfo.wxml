@@ -1,0 +1,9 @@
+<!--pages/completeInfo/completeInfo.wxml-->
+<view class="container">
+  <view>
+    <button bindtap="imdriver" class="fd"> 我是车主 </button>
+  </view>
+  <view>
+    <button bindtap="imcustomer"> 我要拼车 </button>
+  </view>
+</view>

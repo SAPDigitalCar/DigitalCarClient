@@ -1,0 +1,29 @@
+<form bindsubmit="formSubmit" bindreset="formReset">
+  <view class="section">
+    <view class="section__title">姓名</view>
+    <input name="inputName" placeholder="" />
+  </view>
+  <view class="section">
+    <view class="section__title">电话</view>
+    <input name="inputNumber" placeholder="" />
+  </view>
+  <view class="section">
+    <view class="section__title">Email</view>
+    <input name="inputEmail" placeholder="" />
+  </view>
+  <view class="section">
+    <view class="section__title">车牌号</view>
+    <input name="inputEmail" placeholder="" />
+  </view>
+  <view class="section">
+    <view class="section__title">终点</view>
+    <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+      <view class="picker">
+        当前选择：{{region[0]}}，{{region[1]}}，{{region[2]}}
+      </view>
+    </picker>
+  </view>
+  <view class="btn-area">
+    <button formType="submit">提交</button>
+  </view>
+</form>

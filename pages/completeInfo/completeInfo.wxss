@@ -1,0 +1,4 @@
+/* pages/completeInfo/completeInfo.wxss */
+.fd{
+   margin-bottom: 100px;
+}
