@@ -3,14 +3,43 @@
     "pages/completeInfo/completeInfo",
     "pages/imdriver/imdriver",
     "pages/imcustomer/imcustomer",
+    "pages/square/square",
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/me/me",
+    "pages/share/share"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarBackgroundColor": "#ff9900",
+    "navigationBarTitleText": "Digital Car",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#858585",
+    "selectedColor": "#ff9900",
+    "borderStyle": "white",
+    "backgroundColor": "#fbf5f5",
+    "list": [
+      {
+        "pagePath": "pages/square/square",
+        "text": "Square",
+        "iconPath": "images/car-alt.png",
+        "selectedIconPath": "images/car-alt_select.png"
+      },
+      {
+        "pagePath": "pages/share/share",
+        "text": "Share",
+        "iconPath": "images/parking.png",
+        "selectedIconPath": "images/parking_select.png"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "Me",
+        "iconPath": "images/user.png",
+        "selectedIconPath": "images/user_select.png"
+      }
+    ]
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

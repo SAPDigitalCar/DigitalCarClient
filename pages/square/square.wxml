@@ -1,0 +1,30 @@
+<!--pages/square/square.wxml-->
+<view class="page">
+      <!-- <image class='background-image' src='../../images/background.jpeg' mode="aspectFill"></image> -->
+    <map class='background-image'></map>
+    <view class="weui-search-bar">
+      <view class="weui-search-bar__form">
+        <view class="weui-search-bar__box">
+          <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+          <input type="text" class="weui-search-bar__input" placeholder="Enter Destination" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+          <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+            <icon type="clear" size="14"></icon>
+          </view>
+        </view>
+        <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+          <icon class="weui-icon-search" type="search" size="14"></icon>
+          <view class="weui-search-bar__text">Enter Destination</view>
+        </label>
+      </view>
+      <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">Cancel</view>
+
+      <!-- car information -->
+      <!-- <view wx:for="{{cars}}" wx:key="*this">
+          <image src="../../images/car.png"></image>
+          <view id="{{id}}" class="" bindtap="tabClick">
+            <view class="weui-navbar__title">{{item}}</view>
+          </view>
+      </view> -->
+
+  </view>
+</view>
