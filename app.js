@@ -12,7 +12,7 @@ App({
         if (res.code) {
           this.globalData.status = 1
           wx.request({
-            url: '/api/system/wx?code=' + res.code,
+            url: this.globalData.host + '/user/openid?code=' + res.code,
             method: 'get',
             success: res => {
               if (res.statusCode == 200 && res.data.unionid) {//获取unionId成功
@@ -101,5 +101,7 @@ App({
   globalData: {
     unionid: '',
     userInfo: null,
+    host: 'https://carapi.techtuesday.club',
+    openId: ''
   }
 })
