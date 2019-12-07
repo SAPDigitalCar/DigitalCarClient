@@ -15,8 +15,10 @@ App({
             url: this.globalData.host + '/user/openid?code=' + res.code,
             method: 'get',
             success: res => {
-              if (res.statusCode == 200 && res.data.unionid) {//获取unionId成功
-                this.goLogin(res.data.unionid);
+              if (res.data.status==200 && res.data.data) {//获取unionId成功
+                // openID保存在全局，保存手机号
+                this.globalData.openId = res.data.data;
+                this.goLogin(res.data.data);
               }
             },
             fail: function (error) {
@@ -35,50 +37,27 @@ App({
       fail: res => { },
       complete: res => { },
     })
-    // 获取用户信息
-    wx.getSetting({
-      success: res => {
-        if (res.authSetting['scope.userInfo']) {
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-          wx.getUserInfo({
-            success: res => {
-              // 可以将 res 发送给后台解码出 unionId
-              this.globalData.userInfo = res.userInfo
-
-              // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-              // 所以此处加入 callback 以防止这种情况
-              if (this.userInfoReadyCallback) {
-                this.userInfoReadyCallback(res)
-              }
-            }
-          })
-        }
-      }
-    })
   },
-  goLogin: function (unionid) {
+  goLogin: function (openid) {
     let that = this;
-    ajax.request({
-      url: '/api/user/login',
-      data: {
-        LoginType: 'weixin',
-        unionid: unionid
+    wx.request({
+      url: this.globalData.host + '/user/info',
+      header: {
+        openId: openid
       },
-      method: 'post',
+      method: 'get',
       success: res => {
-        // unionid保存在全局，保存手机号
-        that.globalData.unionid = unionid;
-        if (that.unionidCallback) {
-          that.unionidCallback(unionid);
-        }
         if (res.statusCode == 200) {
+          wx.navigateTo({
+            url: '/pages/imdriver/imdriver'
+          })
           if (res.data.code == 0) {
+            // 完善用户信息
+          } else if (res.data.code == -1){
             //  登录成功，保存相关信息，跳转首页
             wx.redirectTo({
               url: "/pages/index"
             })
-          } else if (res.data.code == -1){
-            // 完善用户信息
           } else{
             wx.showToast({
               title: '网络异常，请稍后重试',
@@ -99,7 +78,6 @@ App({
     });
   },
   globalData: {
-    unionid: '',
     userInfo: null,
     host: 'https://carapi.techtuesday.club',
     openId: ''

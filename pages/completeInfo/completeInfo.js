@@ -5,14 +5,31 @@ Page({
    * Page initial data
    */
   data: {
-
+      auth: false
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-
+    // 获取用户信息
+    wx.getSetting({
+      success: res => {
+        if (res.authSetting['scope.userInfo']) {
+          this.data.auth=true;
+          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+          wx.getUserInfo({
+            success: res => {
+              // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+              // 所以此处加入 callback 以防止这种情况
+              if (this.userInfoReadyCallback) {
+                this.userInfoReadyCallback(res)
+              }
+            }
+          })
+        }
+      }
+    })
   },
 
   /**
@@ -78,5 +95,14 @@ Page({
     this.setData({
       region: e.detail.value
     })
+  },
+  bindGetUserInfo (e) {
+    this.setData({auth: true})
+    this.globalData.userInfo = e.detail.userInfo
+    console.log(e.detail.userInfo)
+  },
+  userInfoReadyCallback (res) {
+    this.setData({auth: true})
+    this.globalData.userInfo = res.userInfo
   }
 })
