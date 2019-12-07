@@ -1,64 +1,62 @@
-// pages/me/me.js
+const app = getApp();
+
 Page({
 
   /**
-   * Page initial data
+   * 页面的初始数据
    */
   data: {
-
+    userInfo: {    "avatarUrl":"https://wx.qlogo.cn/mmopen/vi_32/gkiaIOSiaOLDBZTQCsRpxWbFbVnflJBJFhdXCq9MN7YnowdpOm9Jj2onYMuyMHZhhzhsRu6vLRo1cUljfaB1UjfA/132",
+    "nickName":"芒果",
+    "gender": 2
+    }
   },
 
   /**
-   * Lifecycle function--Called when page load
+   * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
+  onLoad: function () {
   },
 
   /**
-   * Lifecycle function--Called when page is initially rendered
+   * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
   },
 
   /**
-   * Lifecycle function--Called when page show
+   * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
   },
 
   /**
-   * Lifecycle function--Called when page hide
+   * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
   },
 
   /**
-   * Lifecycle function--Called when page unload
+   * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
   },
 
   /**
-   * Page event handler function--Called when user drop down
+   * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
   },
 
   /**
-   * Called when page reach bottom
+   * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
 
   },
 
   /**
-   * Called when user click on the top right corner to share
+   * 用户点击右上角分享
    */
   onShareAppMessage: function () {
 
