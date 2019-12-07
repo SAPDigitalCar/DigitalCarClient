@@ -16,13 +16,25 @@
     <input name="inputEmail" placeholder="" />
   </view>
   <view class="section">
-    <view class="section__title">终点</view>
-    <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+    <view class="section__title">可载人数</view>
+    <input name="inputSeats" placeholder="" />
+  </view>
+
+  <view class='giftListView'>
+    <view class="section__title">终点选择</view>
+    <block wx:for="{{items}}">
+        <text>{{item.stopName}}</text>
+    </block>
+  </view>
+
+  <view class="section">
+    <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
       <view class="picker">
-        当前选择：{{region[0]}}，{{region[1]}}，{{region[2]}}
+        当前选择：{{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}，{{multiArray[2][multiIndex[2]]}}
       </view>
     </picker>
   </view>
+
   <view class="btn-area">
     <button formType="submit">提交</button>
   </view>
