@@ -96,6 +96,12 @@ Page({
     console.log(data.multiIndex);
     this.setData(data);
   },
+
+
+  bindLoadlimitChange: function(e) {
+    this.setData({'loadlimitIndex': e.detail.value});
+  },
+
   data: {
     region: ['广东省', '广州市', '海珠区'],
     index: 0,
@@ -144,6 +150,8 @@ Page({
       ]
     ],
     multiIndex: [0, 0],
-    customItem: '全部'
+    customItem: '全部',
+    loadlimitIndex: 0,
+    loadlimitRange: ['Can load 1 person', 'Can load 2 people', 'Can load 3 people', 'Can load 4 people', 'Can load 5 people', 'Can load 6 people'],
   }
 })

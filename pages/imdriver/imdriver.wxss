@@ -1,0 +1,21 @@
+.weui-label {
+  width: 50px;
+}
+
+.uniformBtn {
+  margin-top: 40rpx;
+}
+.checkbox{
+  display: flex;
+  align-items: center;
+  padding-right: 10rpx;
+}
+
+.weui-select{
+  border-right: none;
+}
+
+.itemview{
+  padding-left: 16.5%;
+  font-size: 15px;
+}
