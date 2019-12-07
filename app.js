@@ -47,24 +47,21 @@ App({
       },
       method: 'get',
       success: res => {
-        if (res.statusCode == 200) {
+        if (res.statusCode == 404) {
           wx.navigateTo({
-            url: '/pages/imdriver/imdriver'
+            url: '/pages/completeInfo/completeInfo'
           })
-          if (res.data.code == 0) {
-            // 完善用户信息
-          } else if (res.data.code == -1){
-            //  登录成功，保存相关信息，跳转首页
-            wx.redirectTo({
-              url: "/pages/index"
-            })
-          } else{
-            wx.showToast({
-              title: '网络异常，请稍后重试',
-              duration: 10000,
-              icon: 'none'
-            })
-          }
+        } else if (res.statusCode == 200) {
+          //  登录成功，保存相关信息，跳转首页
+          wx.redirectTo({
+            url: "/pages/index"
+          })
+        } else {
+          wx.showToast({
+            title: '网络异常，请稍后重试',
+            duration: 10000,
+            icon: 'none'
+          })
         }
       },
       fail: function (error) {
