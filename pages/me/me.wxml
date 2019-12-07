@@ -1,2 +1,45 @@
-<!--pages/me/me.wxml-->
-<text>pages/me/me.wxml</text>
+<view class="page">
+  <view class="userinfo">
+    <block>
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <view class="userinfo-personalinfo">
+        <view class="userinfo-nickname">{{userInfo.nickName}}</view>
+        <view class="userinfo-gender">
+          <image wx:if="{{userInfo.gender==2}}" style="width: 20px; height: 20px;" src="../../images/gender_girl.png"></image>
+          <image wx:else="{{userInfo.gender==1}}" style="width: 20px; height: 20px;" src="../../images/gender_boy.png"></image>
+        </view>
+      </view>
+      <text class="editUserInfo">编辑个人资料</text>
+    </block>
+  </view>
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+      <view class="weui-cell__hd">
+        <image src="../../images/myorders.png" class="navIcon"></image>
+      </view>
+      <view class="weui-cell__bd" bindtap="startExam">我的拼车</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </view>
+    <view url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+      <view class="weui-cell__hd">
+        <image src="../../images/mypublish.png" class="navIcon"></image>
+      </view>
+      <view class="weui-cell__bd" bindtap="handleLotteryClick">我发布的</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </view>
+    <view class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+      <view class="weui-cell__hd">
+        <image src="../../images/mywallet.png" class="navIcon"></image>
+      </view>
+      <view class="weui-cell__bd" bindtap="addQuestion">我的钱包</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </view>
+    <navigator url="../schedule/schedule" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+      <view class="weui-cell__hd">
+        <image src="../../images/mysettings.png" class="navIcon"></image>
+      </view>
+      <view class="weui-cell__bd">设置</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </navigator>
+  </view>
+</view>

@@ -1,1 +1,48 @@
-/* pages/me/me.wxss */
+.userinfo{
+  position: relative;
+  width: 100%;
+  height: 400rpx;
+  background: #ff9900;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 40rpx;
+  border-radius: 50%;
+}
+
+.userinfo-personalinfo {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+}
+
+.userinfo-personalinfo .userinfo-nickname {
+  font-size: 40rpx;
+  color: #000000;
+}
+
+.userinfo-personalinfo .userinfo-gender {
+  display: flex;
+  align-items: center;
+  margin-left: 10rpx;
+}
+
+.editUserInfo {
+ color: #303030;
+ font-size: 24rpx;
+}
+
+.navIcon {
+  margin-right: 18rpx;
+  vertical-align: middle;
+  width: 48rpx; 
+  height: 48rpx;
+}
+
+
