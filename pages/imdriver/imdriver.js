@@ -145,7 +145,11 @@ Page({
       data: body,
       method: 'post',
       success: res => {
-        if (res.statusCode == 200 && res.data && res.data.data) {
+        if (res.statusCode == 200 && res.data) {
+          app.globalData.user=res.data.data.user
+          wx.redirectTo({
+            url: "/pages/index"
+          })
         }
       },
       fail: function (error) {
