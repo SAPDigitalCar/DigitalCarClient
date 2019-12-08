@@ -67,7 +67,12 @@ Page({
 
   },
 
-
+  goDetail: function (e) {
+    let id = e.currentTarget.id;
+    wx.navigateTo({
+      url: '../detail/detail?id=' + id,
+    })
+  },
 
   showInput: function () {
     this.setData({

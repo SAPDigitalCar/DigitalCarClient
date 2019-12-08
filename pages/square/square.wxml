@@ -19,7 +19,7 @@
   </view>
 
   <!-- car information -->
-  <view wx:for="{{cars}}" wx:key="{{index}}" class='carPanel' data-Index="{{index}}">
+  <view wx:for="{{cars}}" wx:key="{{index}}" class='carPanel' data-Index="{{index}}" bindtap="goDetail">
       <image wx:if="{{index%2 == 0}}" src="../../images/car.png" class='carImg'></image>
       <view id="{{id}}" wx:if="{{index%2 == 0}}" class='carInfo' bindtap="tabClick">
         <view class="carInfoTime">Time: {{item.time}}</view>
