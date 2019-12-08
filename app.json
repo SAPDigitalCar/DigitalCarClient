@@ -1,13 +1,15 @@
 {
   "pages": [
     "pages/square/square",
-    "pages/completeInfo/completeInfo",
     "pages/imdriver/imdriver",
+    "pages/completeInfo/completeInfo",
     "pages/imcustomer/imcustomer",
     "pages/index/index",
     "pages/logs/logs",
+    "pages/share/share",
     "pages/me/me",
-    "pages/share/share"
+    "pages/me/myorders/myorders",
+    "pages/me/mytickets/mytickets"
   ],
   "window": {
     "backgroundTextStyle": "light",

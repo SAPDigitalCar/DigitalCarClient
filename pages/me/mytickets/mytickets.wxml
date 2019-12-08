@@ -1,0 +1,23 @@
+<view class="page">
+  <view class="orderInfo" wx:for="{{myTickets}}" wx:key="index">
+    <view class="license">
+      <view class="plateNumber">{{item.licensePlateNumber}}</view>
+      <view class="license-right">
+        <text>已完成</text>
+        <image src="../../../images/arrow-right.png"></image>
+      </view>
+    </view>
+    <view class="time">
+      <image src="../../../images/order-time.png" class="icon"></image>
+      <text>{{item.departureTime}}</text>
+    </view>
+    <view class="departure">
+      <image src="../../../images/order-end.png" class="icon"></image>
+      <text>{{item.departureLocation}}</text>
+    </view>
+    <view class="destination">
+      <image src="../../../images/order-start.png" class="icon"></image>
+      <text>{{item.destination}}</text>
+    </view>
+  </view>
+</view>
