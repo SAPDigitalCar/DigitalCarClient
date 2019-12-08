@@ -1,0 +1,6 @@
+/* pages/publish/publish.wxss */
+
+.publishbtn {
+  margin-top: 10rpx;
+  background-color: #ff9900;
+}

@@ -20,8 +20,107 @@ page {
 
 .weui-search-bar {
   border: none;
+  width: 100%;
 }
 
 .weui-search-bar__cancel-btn{
   color: #ff9900;
 }
+
+.carPanel {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  margin: 10rpx;
+}
+
+.carImg {
+  width: 62rpx;
+  height: 62rpx;
+}
+
+
+.carInfo {
+  /* display: none; */
+  width: 250rpx;
+  font-size: 25rpx;
+  height: 100rpx;
+  line-height: 50rpx;
+  padding-left: 20rpx;
+  margin-left: 20rpx;
+
+  position: relative;
+  background-color: #FFF0F5;
+  border: 1px solid #FFB5C5;
+  border-radius: 5px;
+}
+
+.carInfo:after {
+  content: '';
+  width: 20rpx;
+  height: 20rpx;
+  position: absolute;
+  top: 20rpx;
+  left: -11rpx;
+  transform: rotate(45deg);
+  background-color: #FFF0F5;
+  border: 1px #FFB5C5;
+  border-style: none none solid solid;
+}
+
+.carImgRight {
+  margin-left: 20rpx;
+  width: 62rpx;
+  height: 62rpx;
+}
+
+
+.carInfoRight {
+  /* display: none; */
+  width: 250rpx;
+  font-size: 25rpx;
+  height: 100rpx;
+  line-height: 50rpx;
+  padding-left: 20rpx;
+  margin-left: 350rpx;
+
+  position: relative;
+  background-color: #FFF0F5;
+  border: 1px solid #FFB5C5;
+  border-radius: 5px;
+}
+
+.carInfoRight:after {
+  content: '';
+  width: 20rpx;
+  height: 20rpx;
+  position: absolute;
+  top: 20rpx;
+  right: -11rpx;
+  transform: rotate(45deg);
+  background-color: #FFF0F5;
+  border: 1px #FFB5C5;
+  border-style: solid solid none none;
+}
+
+.publish-btn {
+  position: fixed;
+  right: 36px;
+  bottom: 15px;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  background: #ff9900;
+  box-shadow: 0 5px 10px #888;
+}
+
+.publish-btn::before {
+  content: '+';
+  position: absolute;
+  top: -2px;
+  left: 16px;
+  color: #fff;
+  font-size: 30px;
+}
+

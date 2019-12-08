@@ -7,7 +7,8 @@ Page({
   data: {
     inputShowed: false,
     inputVal: "",
-    cars: [{ "id": "1", "time": "5:30pm", "destination": "jinqiao" }, { "id": "2", "time": "4:30pm", "destination": "gaohang" }]
+    cars: [{ "id": "1", "time": "5:30pm", "destination": "jinqiao" }, { "id": "2", "time": "4:30pm", "destination": "gaohang" }, { "id": "1", "time": "5:30pm", "destination": "jinqiao" }, { "id": "2", "time": "4:30pm", "destination": "gaohang" }, { "id": "1", "time": "5:30pm", "destination": "jinqiao" }, { "id": "2", "time": "4:30pm", "destination": "gaohang" }],
+    isDriver: true
   },
 
   /**
@@ -67,8 +68,8 @@ Page({
   },
 
 
-  
-    showInput: function () {
+
+  showInput: function () {
     this.setData({
       inputShowed: true
     });
@@ -88,5 +89,11 @@ Page({
     this.setData({
       inputVal: e.detail.value
     });
+  },
+  onPublishClick: function () {
+    wx.navigateTo({
+      url: '../publish/publish'
+    });
   }
+
 })
