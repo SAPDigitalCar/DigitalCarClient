@@ -47,15 +47,18 @@ App({
       },
       method: 'get',
       success: res => {
-        if (res.statusCode == 404) {
-          wx.navigateTo({
-            url: '/pages/completeInfo/completeInfo'
-          })
-        } else if (res.statusCode == 200) {
-          //  登录成功，保存相关信息，跳转首页
-          wx.redirectTo({
-            url: "/pages/index"
-          })
+        if (res.statusCode == 200 && res.data && res.data.data) {
+          this.globalData.vo=res.data.data
+          if (!res.data.data.phone) {
+            wx.navigateTo({
+              url: '/pages/completeInfo/completeInfo'
+            })
+          } else {
+            //  登录成功，保存相关信息，跳转首页
+            wx.redirectTo({
+              url: "/pages/index"
+            })
+          }
         } else {
           wx.showToast({
             title: '网络异常，请稍后重试',
@@ -75,8 +78,10 @@ App({
     });
   },
   globalData: {
+    vo: null,
     userInfo: null,
     host: 'https://carapi.techtuesday.club',
+    //host: 'localhost:8090',
     openId: ''
   }
 })

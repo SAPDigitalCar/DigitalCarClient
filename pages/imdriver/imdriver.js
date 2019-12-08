@@ -1,4 +1,8 @@
 // pages/imdriver/imdriver.js
+
+const app = getApp();
+import WXRequest from '../../utils/wxRequest';
+
 Page({
 
   /**
@@ -26,7 +30,7 @@ Page({
    * Lifecycle function--Called when page show
    */
   onShow: function () {
-
+      this.setData({nickname: app.globalData.userInfo.nickName});
   },
 
   /**
@@ -70,7 +74,8 @@ Page({
       multiIndex: e.detail.value,
       items: this.data.items
     };
-    data.items.push({stopName:data.multiArray[1][e.detail.value[1]]});
+    data.items.push({stopName:data.multiArray[0][e.detail.value[0]]+data.multiArray[1][e.detail.value[1]],
+                     id:data.multiIndex[0]*10+data.multiIndex[1]});
     this.setData(data)
   },
   bindMultiPickerColumnChange: function (e) {
@@ -102,10 +107,63 @@ Page({
     this.setData({'loadlimitIndex': e.detail.value});
   },
 
+  onSubmit: function(event) {
+    let value = event.detail.value;
+    let userInfo = app.globalData.userInfo
+    let vo = app.globalData.vo
+    let userVO = {
+                  "avatarUrl": userInfo.avatarUrl,
+                  "createTime": vo.createTime,
+                  "email": value.email,
+                  "gender": userInfo.gender,
+                  "id": vo.id,
+                  "licensePlateNumber": value.license,
+                  "nickname": this.data.nickname,
+                  "openId": app.globalData.openId,
+                  "phone": value.phone,
+                  "seatCount": value.seatCount,
+                  "updateTime": vo.updateTime
+                 }
+    let addresses = []
+    for (var i = 0; i < this.data.items.length; i++) {
+      var t = this.data.items[i].stopName;
+      var id = this.data.items[i].id;
+      addresses.push({
+                      "address": t,
+                      "createTime": "2019-12-08T08:50:09.581Z",
+                      "id": id,
+                      "updateTime": "2019-12-08T08:50:09.581Z",
+                      "userId": vo.id,
+                    });
+    }
+    let body={"addresses":addresses,"user":userVO}
+    wx.request({
+      url: app.globalData.host + '/user/create',
+      header: {
+        openId: app.globalData.openId
+      },
+      data: body,
+      method: 'post',
+      success: res => {
+        if (res.statusCode == 200 && res.data && res.data.data) {
+        }
+      },
+      fail: function (error) {
+        console.log(error)
+        wx.showToast({
+          title: 'Save User Fail.',
+          duration: 2000,
+          icon: 'none'
+        })
+      }
+    });
+  },
+
   data: {
     region: ['广东省', '广州市', '海珠区'],
     index: 0,
     items: [],
+    nickname: "",
     multiArray: [['1号线','2号线'], ['莘庄','外环路','莲花路','锦江乐园','上海南站','漕宝路','上海体育馆','徐家汇','衡山路','常熟路','陕西南路','黄陂南路','人民广场','新闸路','汉中路','上海火车站','中山北路','延长路','上海马戏城','汶水路','彭浦新村','共康路','通河新村','呼兰路','共富新村','宝安公路','友谊西路','富锦路']],
     objectMultiArray: [
       [

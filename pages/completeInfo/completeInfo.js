@@ -1,4 +1,6 @@
 // pages/completeInfo/completeInfo.js
+const app = getApp();
+
 Page({
 
   /**
@@ -98,11 +100,11 @@ Page({
   },
   bindGetUserInfo (e) {
     this.setData({auth: true})
-    this.globalData.userInfo = e.detail.userInfo
+    app.globalData.userInfo = e.detail.userInfo
     console.log(e.detail.userInfo)
   },
   userInfoReadyCallback (res) {
     this.setData({auth: true})
-    this.globalData.userInfo = res.userInfo
+    app.globalData.userInfo = res.userInfo
   }
 })

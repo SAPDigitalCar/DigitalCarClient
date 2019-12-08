@@ -1,7 +1,5 @@
 <view class="page">
   <form bindsubmit="onSubmit" bindreset="onReset">
-
-
     <view class="weui-cells__title">
       <!-- Owner -->
     </view>
@@ -13,7 +11,7 @@
           </view>
         </view>
         <view class="weui-cell__bd">
-          <input name="location" class="weui-input" bindinput="bindUserInput" value="name" data-statu="open" />
+            <text>{{nickname}}</text>
         </view>
       </view>
     </view>
@@ -29,7 +27,7 @@
           </view>
         </view>
         <view class="weui-cell__bd">
-          <input name="location" class="weui-input" bindinput="bindUserInput" placeholder="Phone Number(Required)" value="" data-statu="open" />
+          <input name="phone" class="weui-input" bindinput="bindUserInput" placeholder="Phone Number(Required)" value="" data-statu="open" />
         </view>
       </view>
     </view>
@@ -45,7 +43,7 @@
           </view>
         </view>
         <view class="weui-cell__bd">
-          <input name="location" class="weui-input" bindinput="bindUserInput" placeholder="Email(Required)" value="" data-statu="open" />
+          <input name="email" class="weui-input" bindinput="bindUserInput" placeholder="Email(Required)" value="" data-statu="open" />
         </view>
       </view>
     </view>
@@ -61,7 +59,7 @@
           </view>
         </view>
         <view class="weui-cell__bd">
-          <input name="location" class="weui-input" bindinput="bindUserInput" placeholder="License(Required)" value="" data-statu="open" />
+          <input name="license" class="weui-input" bindinput="bindUserInput" placeholder="License(Required)" value="" data-statu="open" />
         </view>
       </view>
     </view>
@@ -77,7 +75,7 @@
           </view>
         </view>
         <view class="weui-cell__bd">
-          <picker name="difficulty" bindchange="bindLoadlimitChange" value="{{loadlimitIndex}}" range="{{loadlimitRange}}">
+          <picker name="seatCount" bindchange="bindLoadlimitChange" value="{{loadlimitIndex}}" range="{{loadlimitRange}}">
             <view class="weui-select weui-select_in-select-after">{{loadlimitRange[loadlimitIndex]}}</view>
           </picker>
         </view>
@@ -113,25 +111,6 @@
                 <button class="uniformBtn">Add Stop</button>
             </picker>
     
-    
-      <!-- Difficulty
-    
-  <view class='giftListView'>
-    <view class="section__title">终点选择</view>
-    <block wx:for="{{items}}">
-        <text>{{item.stopName}}</text>
-    </block>
-  </view>
-
-  <view class="section">
-    <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
-      <view class="picker">
-        当前选择：{{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}，{{multiArray[2][multiIndex[2]]}}
-      </view>
-    </picker>
-  </view>
-      -->
-
     <button class="uniformBtn" form-type="submit">Publish</button>
   </form>
 </view>
