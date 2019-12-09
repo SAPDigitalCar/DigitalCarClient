@@ -1,0 +1,143 @@
+<!--pages/publish/publish.wxml-->
+<view class="page">
+  <form bindsubmit="onSubmit" bindreset="onReset">
+    <view class="weui-cells__title">
+      <!-- Time -->
+    </view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_select">
+        <view class="weui-cell__hd weui-cell__hd_in-select-after">
+          <view class="weui-label">
+            <i-icon type="clock" size="28" color="#80848f" />
+          </view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker mode="multiSelector" name="startDateTime" value="{{startDateTime}}" bindchange="changeSartDateTimeVal" bindcolumnchange="changeStartDateTimeColumn" range="{{dateTimeArray}}">
+            <view class="weui-input">{{dateTimeArray[0][startDateTime[0]]}}-{{dateTimeArray[1][startDateTime[1]]}}-{{dateTimeArray[2][startDateTime[2]]}} {{dateTimeArray[3][startDateTime[3]]}}:{{dateTimeArray[4][startDateTime[4]]}}
+            </view>
+          </picker>
+        </view>
+      </view>
+    </view>
+
+    <view class="weui-cells__title">
+      <!-- load limit -->
+    </view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_select">
+        <view class="weui-cell__hd weui-cell__hd_in-select-after">
+          <view class="weui-label">
+            <image src="../../images/user-friends.png" style="width: 40rpx; height: 40rpx;"></image>
+          </view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker name="seatCount" bindchange="bindLoadlimitChange" value="{{loadlimitIndex}}" range="{{loadlimitRange}}">
+            <view class="weui-select weui-select_in-select-after">{{loadlimitRange[loadlimitIndex]}} People</view>
+          </picker>
+        </view>
+      </view>
+    </view>
+
+    <view class="weui-cells__title">
+      <!-- Price -->
+    </view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_select">
+        <view class="weui-cell__hd weui-cell__hd_in-select-after">
+          <view class="weui-label">
+            <i-icon type="barrage" size="28" color="#80848f" />
+          </view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker name="price" bindchange="bindPriceChange" value="{{pricesIndex}}" range="{{prices}}">
+            <view class="weui-select weui-select_in-select-after">￥ {{prices[pricesIndex]}} / Person</view>
+          </picker>
+        </view>
+      </view>
+    </view>
+
+   <block wx:if="{{items.length>0}}">
+    <view class="weui-cells__title">
+      <!-- stop list -->
+    </view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">
+            <i-icon type="coordinates" size="28" color="#80848f" />
+          </view>
+        </view>
+        <view class="weui-cell__bd">
+            <block wx:for="{{items}}">
+                  <view class="weui-cell_input">
+                            <text>{{item}}</text>
+                  </view>
+            </block>
+        </view>
+      </view>
+    </view>
+    </block>
+
+    <!-- <view class="weui-cells__title">
+      <!-- Destincation -->
+    <!-- </view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">
+            <i-icon type="coordinates" size="28" color="#80848f" />
+          </view>
+        </view>
+        <view class="weui-cell__bd">
+            <picker mode="multiSelector" bindchange="bindDestChange" bindcolumnchange="bindDestColChange" value="{{destIndex}}" range="{{destArray}}">
+            <view class="weui-select weui-select_in-select-after">{{destArray[0][destIndex[1]]}},{{destArray[1][destIndex[1]]}}</view>
+            </picker>
+        </view>
+      </view>
+    </view> --> 
+
+     <!-- <view class="weui-cells__title"> -->
+      <!-- gather places -->
+    <!-- </view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_select">
+        <view class="weui-cell__hd weui-cell__hd_in-select-after">
+          <view class="weui-label">
+            <i-icon type="coordinates" size="28" color="#80848f" />
+          </view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker name="dest" mode="multiSelector" bindchange="bindDestChange" bindcolumnchange="bindDestColChange" value="{{destIndex}}" range="{{destArray}}">
+            <view class="weui-select weui-select_in-select-after">{{destArray[0][destIndex[1]]}},{{destArray[1][destIndex[1]]}}</view>
+          </picker>
+        </view>
+      </view>
+    </view>  -->
+<!-- 
+    <view class="input_screen" bindtap="bindKeyInput" data-statu="close" wx:if="{{showInputStatus}}"></view>
+    <scroll-view class="scroll" scroll-y="true" style="height: {{scrollhight}}rpx;" wx:if="{{showInputStatus}}">
+      <view class="scroll-y" wx:for="{{bindSource}}">
+        <view id="{{item}}" class="itemview" bindtap="itemtap" data-statu="close" wx:if="{{showInputStatus}}">{{item}}</view>
+      </view>
+    </scroll-view> -->
+
+    <view class="weui-cells__title">
+      <!-- gather places -->
+    </view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_select">
+        <view class="weui-cell__hd weui-cell__hd_in-select-after">
+          <view class="weui-label">
+            <i-icon type="flag" size="28" color="#80848f" />
+          </view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker name="venues" bindchange="bindVenuesChange" value="{{venuesIndex}}" range="{{venues}}">
+            <view class="weui-select weui-select_in-select-after">{{venues[venuesIndex]}}</view>
+          </picker>
+        </view>
+      </view>
+    </view>
+    <button class="publishbtn"form-type="submit">Publish</button>
+  </form>
+</view>

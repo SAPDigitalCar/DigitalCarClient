@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/square/square",
+    "pages/publish/publish",
     "pages/completeInfo/completeInfo",
     "pages/imdriver/imdriver",
     "pages/imcustomer/imcustomer",
