@@ -1,27 +1,57 @@
 /* pages/square/square.wxss */
 
-page {
+/* page {
   width: 100%;
   height: 100%;
   position: relative;
-}
-
-/* page__bd {
-  display: block;
 } */
 
-.background-image {
-  height: 100%;
-  position: fixed;
-  width: 100%;
-  left: 0px;
-  top: 0px;
+
+.fromVal {
+  padding-left: 60%; 
+}
+.toVal {
+  padding-left: 35%;
+}
+.ticketsSection {
+ 
+}
+.infoLBL {
+  margin: 20rpx;
 }
 
-.weui-search-bar {
-  border: none;
+.ticketItem {
+  display: flex;
+  margin: 20rpx;
+  height: 180rpx;
+  border: 1px silver solid
 }
 
-.weui-search-bar__cancel-btn{
-  color: #ff9900;
+.leftContent, .rightContent {
+  display: block;
 }
+
+.leftContent {
+  margin: 0 6rpx 0 12rpx;
+}
+
+.rightContent {
+  margin: 0 20rpx;
+  padding: 0 20rpx;
+  flex: 1;
+}
+
+.leftLBL, .seats{
+  color: rgb(201, 196, 196);
+  font-size: 0.8rem;
+}
+
+.leftLBL {
+  margin: 10rpx 0 0 0;
+}
+
+.time{
+  font-size: 2rem;
+}
+
+

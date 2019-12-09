@@ -1,30 +1,38 @@
 <!--pages/square/square.wxml-->
 <view class="page">
-      <!-- <image class='background-image' src='../../images/background.jpeg' mode="aspectFill"></image> -->
-    <map class='background-image'></map>
-    <view class="weui-search-bar">
-      <view class="weui-search-bar__form">
-        <view class="weui-search-bar__box">
-          <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
-          <input type="text" class="weui-search-bar__input" placeholder="Enter Destination" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
-          <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
-            <icon type="clear" size="14"></icon>
-          </view>
-        </view>
-        <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
-          <icon class="weui-icon-search" type="search" size="14"></icon>
-          <view class="weui-search-bar__text">Enter Destination</view>
-        </label>
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">From</view>
       </view>
-      <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">Cancel</view>
-
-      <!-- car information -->
-      <!-- <view wx:for="{{cars}}" wx:key="*this">
-          <image src="../../images/car.png"></image>
-          <view id="{{id}}" class="" bindtap="tabClick">
-            <view class="weui-navbar__title">{{item}}</view>
-          </view>
-      </view> -->
-
+      <view class="weui-cell__bd">
+        <input class="weui-input fromVal" value="SAP Labs" disabled='true' />
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input weui-cell_vcode">
+      <view class="weui-cell__hd">
+        <view class="weui-label ">To</view>
+      </view>
+      <view class="weui-cell__bd">
+        <picker class="toVal" mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+          <view class="weui-select weui-select_in-select-after">{{Dest}}</view>
+        </picker>
+      </view>
+    </view>
+  </view>
+  <view class="ticketsSection">
+    <view class="infoLBL">We found {{ticketsCount}} available cars for you. </view>
+    <!-- tickets information -->
+    <view id="{{item.id}}" bindtap='goDetail' class="ticketItem" wx:for="{{tickets}}" wx:key="id">
+      <view class='leftContent'>
+        <view class="leftLBL">Departure time</view>
+        <view class="time">{{item.time}}</view>
+      </view>
+      <view class="rightContent">
+        <view class="description">{{item.description}}</view>
+        <view class="seats">{{item.seats}} available seats</view>
+        <view class="price">{{item.price}} / person</view>
+      </view>
+    </view>
   </view>
 </view>
