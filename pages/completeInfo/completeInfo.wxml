@@ -1,16 +1,9 @@
 <!--pages/completeInfo/completeInfo.wxml-->
 <view class="container">
-  <block wx:if="{{!auth}}">
-  <view>
-    <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" class="fd"> Authorize </button>
-  </view>
-  </block>
-  <block wx:if="{{auth}}">
     <view>
-      <button bindtap="imdriver" class="fd"> I Am A Driver </button>
+      <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" bindtap="imdriver" class="fd"> I Am A Driver </button>
     </view>
     <view>
-      <button bindtap="imcustomer"> Give Me A Ride </button>
+      <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" bindtap="imcustomer"> Give Me A Ride </button>
     </view>
-  </block>
 </view>
