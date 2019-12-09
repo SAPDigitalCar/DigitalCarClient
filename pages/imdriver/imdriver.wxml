@@ -76,7 +76,7 @@
           </view>
         </view>
         <view class="weui-cell__bd">
-          <input name="carDescription" class="weui-input" bindinput="bindUserInput" placeholder="Email(Required)" value="" data-statu="open" />
+          <input name="carDescription" class="weui-input" bindinput="bindUserInput" placeholder="Describe Your Car" value="" data-statu="open" />
         </view>
       </view>
     </view>
