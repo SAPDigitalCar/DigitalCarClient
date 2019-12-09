@@ -149,8 +149,8 @@ Page({
       success: res => {
         if (res.statusCode == 200 && res.data) {
           app.globalData.user=res.data.data.user
-          wx.redirectTo({
-            url: "/pages/index"
+          wx.navigateTo({
+            url: '/pages/square/square'
           })
         }
       },
