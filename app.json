@@ -1,11 +1,13 @@
 {
   "pages": [
-    "pages/completeInfo/completeInfo",
     "pages/square/square",
+    "pages/publish/publish",
+    "pages/completeInfo/completeInfo",
     "pages/imdriver/imdriver",
     "pages/imcustomer/imcustomer",
     "pages/index/index",
     "pages/logs/logs",
+    "pages/orderdetail/orderdetail",
     "pages/share/share",
     "pages/me/me",
     "pages/me/myorders/myorders",

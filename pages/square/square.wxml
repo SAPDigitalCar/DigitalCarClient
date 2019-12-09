@@ -35,4 +35,5 @@
       </view>
     </view>
   </view>
+  <view bindtap="onPublishClick" class="publish-btn"></view>
 </view>

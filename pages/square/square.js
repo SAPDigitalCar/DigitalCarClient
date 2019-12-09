@@ -103,6 +103,12 @@ Page({
 
   },
 
+  onPublishClick: function () {
+    wx.navigateTo({
+      url: '../publish/publish'
+    });
+  },
+
   goLogin: function (openid) {
     wx.request({
       url: app.globalData.host + '/user/info',

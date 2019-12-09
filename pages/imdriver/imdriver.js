@@ -149,7 +149,7 @@ Page({
       success: res => {
         if (res.statusCode == 200 && res.data) {
           app.globalData.user=res.data.data.user
-          wx.navigateTo({
+          wx.switchTab({
             url: '/pages/square/square'
           })
         }

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "i-icon": "../../components/icon/index"
+  },
+  "navigationBarTitleText": "Publish"
+}
