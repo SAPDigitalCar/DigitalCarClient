@@ -6,28 +6,24 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo: {    "avatarUrl":"https://wx.qlogo.cn/mmopen/vi_32/gkiaIOSiaOLDBZTQCsRpxWbFbVnflJBJFhdXCq9MN7YnowdpOm9Jj2onYMuyMHZhhzhsRu6vLRo1cUljfaB1UjfA/132",
-    "nickName":"芒果",
-    "gender": 2
-    }
+    myTickets: [{
+      "licensePlateNumber": "沪A12345",
+      "departureTime": "2019-12-08 18:30",
+      "departureLocation": "SAP Labs China",
+      "destination": "2号线云山路"
+    },
+    {
+      "licensePlateNumber": "沪A23456",
+      "departureTime": "2019-12-08 09:00",
+      "departureLocation": "2号线云山路",
+      "destination": "SAP Labs China"
+    }]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
-  },
-
-  listMyOrders: function () {
-    wx.navigateTo({
-      url: '/pages/me/myorders/myorders'
-    })
-  },
-
-  listMyTickets: function () {
-    wx.navigateTo({
-      url: '/pages/me/mytickets/mytickets'
-    })
   },
 
   /**
