@@ -75,7 +75,7 @@ Page({
       items: this.data.items
     };
     data.items.push({stopName:data.multiArray[0][e.detail.value[0]]+data.multiArray[1][e.detail.value[1]],
-                     id:data.multiIndex[0]*10+data.multiIndex[1]});
+                     id:data.multiIndex[0]*100+data.multiIndex[1]});
     this.setData(data)
   },
   bindMultiPickerColumnChange: function (e) {
@@ -122,7 +122,8 @@ Page({
                   "openId": app.globalData.openId,
                   "phone": value.phone,
                   "seatCount": value.seatCount,
-                  "updateTime": vo.updateTime
+                  "updateTime": vo.updateTime,
+                  "carDescription": value.carDescription
                  }
     let addresses = []
     for (var i = 0; i < this.data.items.length; i++) {
