@@ -6,6 +6,7 @@
     "pages/imcustomer/imcustomer",
     "pages/index/index",
     "pages/logs/logs",
+    "pages/orderdetail/orderdetail",
     "pages/share/share",
     "pages/me/me",
     "pages/me/myorders/myorders",

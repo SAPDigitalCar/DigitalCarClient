@@ -1,0 +1,12 @@
+
+/* pages/orderdetail/orderdetail.wxss */
+.order{
+  display:flex;
+  flex-direction: column;
+}
+.main { width: 100%; border: 3;
+ display: flex;justify-content: space-between; background-color:beige}
+.item { height: 100rpx; width: 300rpx;}
+.item1 { }
+.item2 { text-align: end}
+.joinButton{margin-top: 250rpx;width: 200rpx}
