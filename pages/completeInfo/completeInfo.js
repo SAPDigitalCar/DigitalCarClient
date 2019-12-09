@@ -83,11 +83,13 @@ Page({
 
   },
   imcustomer: function() {
+    app.globalData.isDriver=false
     wx.navigateTo({
-      url: '/pages/imcustomer/imcustomer'
+      url: '/pages/imdriver/imdriver'
     })
   },
   imdriver: function () {
+    app.globalData.isDriver=true
     wx.navigateTo({
       url: '/pages/imdriver/imdriver'
     })

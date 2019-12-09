@@ -31,6 +31,7 @@ Page({
    */
   onShow: function () {
       this.setData({nickname: app.globalData.userInfo.nickName});
+      this.setData({isDriver: app.globalData.isDriver});
   },
 
   /**
@@ -165,6 +166,7 @@ Page({
   },
 
   data: {
+    isDriver: true,
     region: ['广东省', '广州市', '海珠区'],
     index: 0,
     items: [],

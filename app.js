@@ -15,6 +15,7 @@ App({
     userInfo: null,
     host: 'https://carapi.techtuesday.club',
     //host: 'localhost:8090',
-    openId: ''
+    openId: '',
+    isDriver: true
   }
 })

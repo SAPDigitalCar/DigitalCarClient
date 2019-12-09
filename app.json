@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/completeInfo/completeInfo",
     "pages/square/square",
     "pages/imdriver/imdriver",
-    "pages/completeInfo/completeInfo",
     "pages/imcustomer/imcustomer",
     "pages/index/index",
     "pages/logs/logs",

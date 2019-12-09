@@ -48,6 +48,7 @@
       </view>
     </view>
     
+    <block wx:if="{{isDriver}}">
     <view class="weui-cells__title">
       <!-- car number -->
     </view>
@@ -97,6 +98,7 @@
         </view>
       </view>
     </view>
+    </block>
 
     <block wx:if="{{items.length>0}}">
     <view class="weui-cells__title">
