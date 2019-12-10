@@ -19,6 +19,10 @@ page {
   justify-content: space-between;
 } */
 
+.line {
+  width:100px;
+}
+
 .infoLBL {
   margin: 40rpx;
   font-size: 1rem;
@@ -39,7 +43,9 @@ page {
 }
 
 .leftContent {
-  margin: 0 6rpx 0 12rpx;
+  margin: 20rpx 6rpx 20rpx 12rpx;
+  padding: 0 40rpx 0 0; 
+  border-right: 1px silver solid
 }
 
 .rightContent {
@@ -57,9 +63,6 @@ page {
   font-size: 0.9rem;
 }
 
-.leftLBL {
-  margin: 10rpx 0 0 0;
-}
 
 .price {
   padding-top: 6rpx;
