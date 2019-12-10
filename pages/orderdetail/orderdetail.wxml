@@ -1,37 +1,50 @@
-<view class='order'>
-    <view class='main'>
-        <view class='item item1'>Departure Time</view>
-        <view class='item item2'>123</view>
+<view class="page">
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell">
+      <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+        <image class="detailImg" src="../../images/car.png" />
+      </view>
+      <view class="weui-cell__bd">
+        <view class="license">沪C 12345</view>
+        <view class="description">Big seats with free snacks</view>
+        <view class="seats">1 available seats left</view>
+      </view>
     </view>
-    <view class='main'>
-        <view class='item item1'>Price</view>
-        <view class='item item2'>123</view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <view class="infoTitle">Owned by</view>
+        <view class="infoValue">{{userInfo.nickName}}</view>
+      </view>
+      <image class="userinfo-avatar weui-cell__ft" src="{{userInfo.avatarUrl}}" mode="cover"></image>
     </view>
-    <view class='main'>
-        <view class='item item1'>Available Seats</view>
-        <view class='item item2'>123</view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <view class="infoTitle">Departure Time</view>
+        <view class="infoValue">17: 45</view>
+      </view>
     </view>
-    <view class='main'>
-        <view class='item item1'>License Number</view>
-        <view class='item item2'>123</view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <view class="infoTitle"> Price</view>
+        <view class="infoValue"> ￥20/Person</view>
+      </view>
     </view>
-    <view class='main'>
-        <view class='item item1'>Car Description</view>
-        <view class='item item2'>123</view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <view class="infoTitle">Boarding Point</view>
+        <view class="infoValue">Labs's Gate</view>
+      </view>
     </view>
-    <view class='main'>
-        <view class='item item1'>Who Joined</view>
-        <view class='item item2'>123</view>
-    </view>
-    <view class='main'>
-        <view class='item item1'>Driver</view>
-        <view class='item item2'>123</view>
-    </view>
-    <view class='main'>
-        <view class='item item1'>Meeting Point</view>
-        <view class='item item2'>123</view>
-    </view>
-    <button class='joinButton'>Join</button>
+  </view>
+
+  <!-- people in the car -->
+  <view class="peopleList">
+  <view class="listLBL"> People in this car ({{people.length}})</view>
+  <view class="list" wx:for="{{people}}">
+     <image class="listImg" src="{{item.avatarUrl}}" mode="cover"></image>  
+     <view class="listNick">{{item.nickName}}</view>
+  </view>
+  </view>
+
+  <button class="joinbtn" form-type="submit">Join this Car</button>
 </view>
-
-

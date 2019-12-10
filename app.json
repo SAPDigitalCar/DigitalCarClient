@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/completeInfo/completeInfo",
     "pages/square/square",
+    "pages/completeInfo/completeInfo",
     "pages/orderdetail/orderdetail",
     "pages/publish/publish",
     "pages/imcustomer/imcustomer",
