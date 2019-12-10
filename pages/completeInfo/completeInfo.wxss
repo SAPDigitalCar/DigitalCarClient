@@ -4,6 +4,7 @@
    margin-bottom: 20px;
 }
 .button{
+  font-weight: normal;
   background-color: white;
 }
 .info{
