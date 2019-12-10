@@ -31,7 +31,7 @@
       <view class="rightContent">
         <view class="description">{{item.description}}</view>
         <view class="seats">{{item.seats}} available seats</view>
-        <view class="price">{{item.price}} / person</view>
+        <view class="price">￥{{item.price}} / person</view>
       </view>
     </view>
   </view>

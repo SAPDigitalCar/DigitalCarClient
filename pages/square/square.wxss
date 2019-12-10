@@ -1,30 +1,36 @@
 /* pages/square/square.wxss */
 
-/* page {
+page {
   width: 100%;
   height: 100%;
-  position: relative;
-} */
-
+  background-color: #f3f0f0;
+}
 
 .fromVal {
-  padding-left: 60%; 
+  padding-right: 30rpx;
+  text-align: right
 }
 .toVal {
-  padding-left: 35%;
+  text-align: right
 }
-.ticketsSection {
- 
-}
+
+/* .weui-cell_input {
+  display: flex;
+  justify-content: space-between;
+} */
+
 .infoLBL {
-  margin: 20rpx;
+  margin: 40rpx;
+  font-size: 1rem;
+  font-weight: bold; 
 }
 
 .ticketItem {
   display: flex;
   margin: 20rpx;
   height: 180rpx;
-  border: 1px silver solid
+  border: 1px silver solid;
+  background-color: #ffffff;
 }
 
 .leftContent, .rightContent {
@@ -37,22 +43,30 @@
 
 .rightContent {
   margin: 0 20rpx;
-  padding: 0 20rpx;
+  padding: 10rpx 20rpx;
   flex: 1;
 }
 
 .leftLBL, .seats{
-  color: rgb(201, 196, 196);
+  color: #cfcaca;
   font-size: 0.8rem;
 }
+
 
 .leftLBL {
   margin: 10rpx 0 0 0;
 }
 
+.price {
+  padding-top: 6rpx;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
 .time{
   font-size: 2rem;
 }
+
 
 
 
@@ -74,4 +88,7 @@
   left: 16px;
   color: #fff;
   font-size: 30px;
+}
+
+.ticketsSection {
 }
