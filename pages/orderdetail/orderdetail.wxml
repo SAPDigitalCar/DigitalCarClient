@@ -1,37 +1,50 @@
-<view class='order'>
-    <view class='main'>
-        <view class='item item1'>Departure Time</view>
-        <view class='item item2'>123</view>
+<view class="page">
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell">
+      <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+        <image class="detailImg" src="../../images/car.png" />
+      </view>
+      <view class="weui-cell__bd">
+        <view class="license">{{licensePlateNumber}}</view>
+        <view class="description">{{carDescription}}</view>
+        <view class="seats">{{seatCount}} available seats left</view>
+      </view>
     </view>
-    <view class='main'>
-        <view class='item item1'>Price</view>
-        <view class='item item2'>123</view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <view class="infoTitle">Owned by</view>
+        <view class="infoValue">{{nickName}}</view>
+      </view>
+      <image class="userinfo-avatar weui-cell__ft" src="{{avatarUrl}}" mode="cover"></image>
     </view>
-    <view class='main'>
-        <view class='item item1'>Available Seats</view>
-        <view class='item item2'>123</view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <view class="infoTitle">Departure Time</view>
+        <view class="infoValue">{{departureTime}}</view>
+      </view>
     </view>
-    <view class='main'>
-        <view class='item item1'>License Number</view>
-        <view class='item item2'>123</view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <view class="infoTitle"> Price</view>
+        <view class="infoValue"> ￥{{price}}/Person</view>
+      </view>
     </view>
-    <view class='main'>
-        <view class='item item1'>Car Description</view>
-        <view class='item item2'>123</view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <view class="infoTitle">Boarding Point</view>
+        <view class="infoValue">{{departureAddresses}}</view>
+      </view>
     </view>
-    <view class='main'>
-        <view class='item item1'>Who Joined</view>
-        <view class='item item2'>123</view>
-    </view>
-    <view class='main'>
-        <view class='item item1'>Driver</view>
-        <view class='item item2'>123</view>
-    </view>
-    <view class='main'>
-        <view class='item item1'>Meeting Point</view>
-        <view class='item item2'>123</view>
-    </view>
-    <button class='joinButton' bindtap='tryJoin'>Join</button>
+  </view>
+
+  <!-- people in the car -->
+  <view class="peopleList">
+  <view class="listLBL"> People in this car ({{passengers.length}})</view>
+  <view class="list" wx:for="{{passengers}}">
+     <image class="listImg" src="{{item.avatarUrl}}" mode="cover"></image>  
+     <view class="listNick">{{item.nickname}}</view>
+  </view>
+  </view>
+
+  <button class="joinbtn" form-type="submit" bindtap="tryJoin">Join this Car</button>
 </view>
-
-

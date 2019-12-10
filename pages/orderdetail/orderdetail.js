@@ -7,7 +7,33 @@ Page({
    * Page initial data
    */
   data: {
-      ticketDetail:null
+    userInfo: {
+      "avatarUrl": "https://wx.qlogo.cn/mmopen/vi_32/gkiaIOSiaOLDBZTQCsRpxWbFbVnflJBJFhdXCq9MN7YnowdpOm9Jj2onYMuyMHZhhzhsRu6vLRo1cUljfaB1UjfA/132",
+      "nickName": "芒果",
+      "gender": 2,
+    },
+    people: [{
+      "avatarUrl": "https://wx.qlogo.cn/mmopen/vi_32/gkiaIOSiaOLDBZTQCsRpxWbFbVnflJBJFhdXCq9MN7YnowdpOm9Jj2onYMuyMHZhhzhsRu6vLRo1cUljfaB1UjfA/132",
+      "nickName": "芒果"
+    }, {
+        "avatarUrl": "https://wx.qlogo.cn/mmopen/vi_32/gkiaIOSiaOLDBZTQCsRpxWbFbVnflJBJFhdXCq9MN7YnowdpOm9Jj2onYMuyMHZhhzhsRu6vLRo1cUljfaB1UjfA/132",
+        "nickName": "芒果"
+      }, {
+        "avatarUrl": "https://wx.qlogo.cn/mmopen/vi_32/gkiaIOSiaOLDBZTQCsRpxWbFbVnflJBJFhdXCq9MN7YnowdpOm9Jj2onYMuyMHZhhzhsRu6vLRo1cUljfaB1UjfA/132",
+        "nickName": "芒果"
+      }],
+      ticketDetail:null,
+      ticket:null,
+      passengers:null,
+      driver:null,
+      licensePlateNumber: "",
+      carDescription:'',
+      seatCount:'',
+      nickName:'',
+      avatarUrl:'',
+      departureTime:'',
+      price:'',
+      departureAddresses:null
   },
 
   /**
@@ -15,15 +41,41 @@ Page({
    */
   onLoad: function (options) {
     //  + options.id
+    let data = {
+      ticketDetail:null,
+      driver:null,
+      passengers:null,
+      ticket:null,
+      licensePlateNumber: "",
+      carDescription:'',
+      seatCount:'',
+      nickName:'',
+      avatarUrl:'',
+      departureTime:'',
+      price:'',
+      departureAddresses:''
+    };
     wx.request({
-      url: app.globalData.host + '/ticket/detail/1',
+      url: app.globalData.host + '/ticket/detail/5',
       header: {
         openId: app.globalData.openId
       },
       method: 'get',
       success: res => {
-        if (res.statusCode == 200 && res.data) {
-          this.data.ticketDetail=res.data
+        if (res.statusCode == 200 && res.data && res.data.data) {
+          data.ticketDetail=res.data.data
+          data.driver=res.data.data.driver
+          data.passengers = res.data.data.passengers
+          data.ticket = res.data.data.ticket
+          data.licensePlateNumber = data.driver.licensePlateNumber;
+          data.carDescription=data.driver.carDescription;
+          data.seatCount=data.driver.seatCount
+          data.nickName=data.driver.nickname
+          data.avatarUrl=data.driver.avatarUrl
+          data.departureTime=data.ticket.departureTime
+          data.price=data.ticket.price
+          data.departureAddresses=data.ticket.departureAddresses
+          this.setData(data)
         }
       },
       fail: function (error) {
@@ -83,16 +135,17 @@ Page({
   },
 
   tryJoin: function() {
+    let that=this
     wx.showActionSheet({
       itemList: ['Join This Car'],
       success(res) {
         wx.request({
           url: app.globalData.host + '/order/save',
           header: {
-            openId: 'omwhI40otCKfxBAbxK9T2Oim3xdU'
+            openId: app.globalData.openId
           },
           data: {
-            "ticketId": 2
+            "ticketId": that.data.ticket.id
           },
           method: 'post',
           success: res => {

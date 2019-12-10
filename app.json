@@ -1,6 +1,5 @@
 {
   "pages": [
-    
     "pages/square/square",
     "pages/orderdetail/orderdetail",
     "pages/completeInfo/completeInfo",
