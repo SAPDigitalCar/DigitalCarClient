@@ -1,16 +1,10 @@
 <!--pages/completeInfo/completeInfo.wxml-->
 <view class="container">
-  <block wx:if="{{!auth}}">
-  <view>
-    <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" class="fd"> Authorize </button>
-  </view>
-  </block>
-  <block wx:if="{{auth}}">
+    <image class='background-image' src='../../images/background.jpeg' mode="aspectFill"></image>
     <view>
-      <button bindtap="imdriver" class="fd"> I Am A Driver </button>
+      <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" bindtap="imdriver" class="fd"> Car Owner </button>
     </view>
     <view>
-      <button bindtap="imcustomer"> Give Me A Ride </button>
+      <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" bindtap="imcustomer"> Passenger </button>
     </view>
-  </block>
 </view>

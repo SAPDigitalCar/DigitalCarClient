@@ -84,15 +84,9 @@ Page({
   },
   imcustomer: function() {
     app.globalData.isDriver=false
-    wx.navigateTo({
-      url: '/pages/imdriver/imdriver'
-    })
   },
   imdriver: function () {
     app.globalData.isDriver=true
-    wx.navigateTo({
-      url: '/pages/imdriver/imdriver'
-    })
   },
   bindRegionChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
@@ -104,6 +98,9 @@ Page({
     this.setData({auth: true})
     app.globalData.userInfo = e.detail.userInfo
     console.log(e.detail.userInfo)
+    wx.navigateTo({
+      url: '/pages/imdriver/imdriver'
+    })
   },
   userInfoReadyCallback (res) {
     this.setData({auth: true})
