@@ -35,6 +35,8 @@ Page({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
 
+    if (app.globalData.userInfo && app.globalData.userInfo.phone) return;
+    
     // 登录
     wx.login({
       success: res => {

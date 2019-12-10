@@ -3,10 +3,13 @@
 .order{
   display:flex;
   flex-direction: column;
+  margin-top: 3px;
+  margin-left:3px;
+  margin-right:3px;
 }
-.main { width: 100%; border: 3;
- display: flex;justify-content: space-between; background-color:beige}
-.item { height: 100rpx; width: 300rpx;}
+.main { width: 100%; border-top:0;border-left:0;border-right:0;border-bottom: 1; border-style:solid;border-color:silver;
+ display: flex;justify-content: space-between}
+.item { height: 100rpx; width: 300rpx;font-size:13px;}
 .item1 { }
 .item2 { text-align: end}
 .joinButton{margin-top: 250rpx;width: 200rpx}
