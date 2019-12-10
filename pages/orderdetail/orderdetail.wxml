@@ -31,7 +31,7 @@
         <view class='item item1'>Meeting Point</view>
         <view class='item item2'>123</view>
     </view>
-    <button class='joinButton'>Join</button>
+    <button class='joinButton' bindtap='tryJoin'>Join</button>
 </view>
 
 
