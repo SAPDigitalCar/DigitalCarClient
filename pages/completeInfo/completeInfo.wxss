@@ -1,6 +1,6 @@
 /* pages/completeInfo/completeInfo.wxss */
 .fd{
-   margin-top:5px;
+   margin-top:0px;
    margin-bottom: 20px;
 }
 .button{
@@ -9,7 +9,7 @@
 }
 .info{
   font-weight: normal;
-  margin-top:270px;
+  margin-top:315px;
   font-size:9px;
   color:grey;
   background-color: white;
