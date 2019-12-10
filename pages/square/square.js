@@ -18,25 +18,20 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-  },
-  /**
-   * Lifecycle function--Called when page is initially rendered
-   */
-  onReady: function () {
-   
+    let openId = app.globalData.openId
+    if (!openId) {
+      this.getOpenId();
+    } else {
+      let userInfo = app.globalData.userInfo
+      if (!userInfo) {
+        this.goLogin(openId);
+      }else{
+        this.getTicketsInfo();
+      }
+    }
   },
 
-  /**
-   * Lifecycle function--Called when page show
-   */
-  onShow: function () {
-    // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
-
-    if (app.globalData.userInfo && app.globalData.userInfo.phone) return;
-    
+  getOpenId: function() {
     // 登录
     wx.login({
       success: res => {
@@ -46,10 +41,12 @@ Page({
             url: app.globalData.host + '/user/openid?code=' + res.code,
             method: 'get',
             success: res => {
-              if (res.data.status==200 && res.data.data) {//获取unionId成功
+              if (res.data.status == 200 && res.data.data) {
                 // openID保存在全局，保存手机号
                 app.globalData.openId = res.data.data;
-                this.goLogin(res.data.data);
+                if (!app.globalData.userInfo){
+                  this.goLogin(res.data.data);
+                }
               }
             },
             fail: function (error) {
@@ -68,6 +65,19 @@ Page({
       fail: res => { },
       complete: res => { },
     })
+  },
+  /**
+   * Lifecycle function--Called when page is initially rendered
+   */
+  onReady: function () {
+   
+  },
+
+  /**
+   * Lifecycle function--Called when page show
+   */
+  onShow: function () {
+    
   },
 
   /**
@@ -127,8 +137,8 @@ Page({
             })
           } else {//登陆成功 保存信息
             app.globalData.userInfo=res.data.data
+            this.getTicketsInfo();
           }
-          this.getTicketsInfo();
         } else {
           wx.showToast({
             title: '网络异常，请稍后重试',
