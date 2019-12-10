@@ -7,7 +7,7 @@
       <view class="weui-cell weui-cell_input">
         <view class="weui-cell__hd">
           <view class="weui-label">
-            <image src="../../images/grin-alt.png" style="width: 40rpx; height: 40rpx;"></image>
+            <i-icon type="emoji" size="28" color="#80848f" />
           </view>
         </view>
         <view class="weui-cell__bd">
@@ -23,7 +23,7 @@
       <view class="weui-cell weui-cell_input">
         <view class="weui-cell__hd">
           <view class="weui-label">
-            <image src="../../images/phone-square.png" style="width: 40rpx; height: 40rpx;"></image>
+             <i-icon type="mobilephone" size="28" color="#80848f" />           
           </view>
         </view>
         <view class="weui-cell__bd">
@@ -39,7 +39,7 @@
       <view class="weui-cell weui-cell_input">
         <view class="weui-cell__hd">
           <view class="weui-label">
-            <image src="../../images/paper-plane.png" style="width: 40rpx; height: 40rpx;"></image>
+            <i-icon type="mail" size="28" color="#80848f" />   
           </view>
         </view>
         <view class="weui-cell__bd">
@@ -56,27 +56,11 @@
       <view class="weui-cell weui-cell_input">
         <view class="weui-cell__hd">
           <view class="weui-label">
-            <image src="../../images/address-card.png" style="width: 40rpx; height: 40rpx;"></image>
+            <i-icon type="businesscard" size="28" color="#80848f" /> 
           </view>
         </view>
         <view class="weui-cell__bd">
           <input name="license" class="weui-input" bindinput="bindUserInput" placeholder="License(Required)" value="" data-statu="open" />
-        </view>
-      </view>
-    </view>
-    
-    <view class="weui-cells__title">
-      <!-- carDescription -->
-    </view>
-    <view class="weui-cells weui-cells_after-title">
-      <view class="weui-cell weui-cell_input">
-        <view class="weui-cell__hd">
-          <view class="weui-label">
-            <image src="../../images/paper-plane.png" style="width: 40rpx; height: 40rpx;"></image>
-          </view>
-        </view>
-        <view class="weui-cell__bd">
-          <input name="carDescription" class="weui-input" bindinput="bindUserInput" placeholder="Describe Your Car" value="" data-statu="open" />
         </view>
       </view>
     </view>
@@ -88,7 +72,7 @@
       <view class="weui-cell weui-cell_select">
         <view class="weui-cell__hd weui-cell__hd_in-select-after">
           <view class="weui-label">
-            <image src="../../images/user-friends.png" style="width: 40rpx; height: 40rpx;"></image>
+             <i-icon type="group" size="28" color="#80848f" />
           </view>
         </view>
         <view class="weui-cell__bd">
@@ -100,6 +84,22 @@
     </view>
     </block>
 
+    <view class="weui-cells__title">
+      <!-- carDescription -->
+    </view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">
+             <i-icon type="message" size="28" color="#80848f" />
+          </view>
+        </view>
+        <view class="weui-cell__bd">
+          <input name="carDescription" class="weui-input" bindinput="bindUserInput" placeholder="Describe Your Car" value="" data-statu="open" />
+        </view>
+      </view>
+    </view>
+
     <block wx:if="{{items.length>0}}">
     <view class="weui-cells__title">
       <!-- stop list -->
@@ -108,7 +108,7 @@
       <view class="weui-cell weui-cell_input">
         <view class="weui-cell__hd">
           <view class="weui-label">
-            <image src="../../images/map-marker-alt.png" style="width: 40rpx; height: 40rpx;"></image>
+             <i-icon type="coordinates" size="28" color="#80848f" />
           </view>
         </view>
         <view class="weui-cell__bd">

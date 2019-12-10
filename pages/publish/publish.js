@@ -93,7 +93,6 @@ Page({
 
   onSubmit: function (event) {
     let value = event.detail.value;
-    console.log("value: " + value);
     let ticketDetail = this.buildTicketDetail(value);
     wx.request({
       url: app.globalData.host + '/ticket/save',
@@ -106,7 +105,7 @@ Page({
         if (res.statusCode == 200 && res.data && res.data.data) {
           wx.showToast({
             title: 'Success',
-            duration: 1000,
+            duration: 1500,
             icon: 'success'
           })
           setTimeout(function () {
@@ -141,9 +140,7 @@ Page({
       "price": this.data.prices[value.price],
       "destinationAddresses": this.data.items,
       "userId": this.data.userInfo.id,
-      "departureAddresses": this.data.venues,
-      "createTime": "2019-12-09T14:57:54.594Z",
-      "updateTime": "2019-12-09T14:57:54.594Z"
+      "departureAddresses": this.data.venues
     };
     return ticketDetail;
   },
