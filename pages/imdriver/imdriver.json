@@ -1,4 +1,5 @@
 {
+    "navigationBarTitleText": "Register",
     "usingComponents": {
       "i-icon": "../../components/icon/index"
     }
