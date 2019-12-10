@@ -1,10 +1,9 @@
 {
   "pages": [
-    "pages/orderdetail/orderdetail",
+    
     "pages/square/square",
-    
+    "pages/orderdetail/orderdetail",
     "pages/completeInfo/completeInfo",
-    
     "pages/publish/publish",
     "pages/imcustomer/imcustomer",
     "pages/imdriver/imdriver",
