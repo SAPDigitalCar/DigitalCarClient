@@ -15,15 +15,15 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#ff9900",
+    "navigationBarBackgroundColor": "#445E7F",
     "navigationBarTitleText": "Digital Car",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "color": "#858585",
-    "selectedColor": "#ff9900",
+    "selectedColor": "#445E7F",
     "borderStyle": "white",
-    "backgroundColor": "#fbf5f5",
+    "backgroundColor": "#ffffff",
     "list": [
       {
         "pagePath": "pages/square/square",

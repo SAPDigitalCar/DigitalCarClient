@@ -77,7 +77,10 @@ Page({
    * Lifecycle function--Called when page show
    */
   onShow: function () {
-    
+    let that = this;
+    if (app.globalData.userInfo){
+      that.getTicketsInfo();
+    }
   },
 
   /**
@@ -118,6 +121,12 @@ Page({
   onPublishClick: function () {
     wx.navigateTo({
       url: '../publish/publish'
+    });
+  },
+
+  goDetail: function () {
+    wx.navigateTo({
+      url: '../orderdetail/orderdetail'
     });
   },
 
@@ -191,13 +200,13 @@ Page({
     this.setData(data);
   },  
     
-  getTicketsInfo: function(){
+  getTicketsInfo: function (){
     let that = this;
-    let myOpenId = app.globalData.openId
+    
     wx.request({
       url: app.globalData.host + '/ticket/match',
       header: {
-        openId: myOpenId
+        openId: app.globalData.openId
       },
       method: 'get',
       success: res => {
