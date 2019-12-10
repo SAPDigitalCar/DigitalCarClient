@@ -2,7 +2,7 @@
   "pages": [
     "pages/square/square",
     "pages/completeInfo/completeInfo",
-    "pages/orderdetail/orderdetail",
+    "pages/orderdetail/orderdetail",    
     "pages/publish/publish",
     "pages/imcustomer/imcustomer",
     "pages/imdriver/imdriver",
