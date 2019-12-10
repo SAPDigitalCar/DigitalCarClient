@@ -6,7 +6,7 @@ page {
 
 .orderInfo {
   width: 90%;
-  height: 180rpx;
+  height: 150rpx;
   padding: 20rpx;
   margin: 15rpx 20rpx;
   background-color: #fff;
@@ -19,21 +19,17 @@ page {
   color: #606060;
 }
 
-.license {
-  display: flex;
-  justify-content: space-between;
-}
-
-.plateNumber {
-  color: #202020;
-}
-
-.license-right {
+.time-left {
   display: flex;
   align-items: center;
 }
 
-.license-right image {
+.time-right {
+  display: flex;
+  align-items: center;
+}
+
+.time-right image {
   padding-left: 2rpx;
   width: 30rpx;
   height: 30rpx;
@@ -41,6 +37,7 @@ page {
 
 .time {
   display: flex;
+  justify-content: space-between;
 }
 
 .departure {

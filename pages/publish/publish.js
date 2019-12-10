@@ -133,9 +133,9 @@ Page({
   },
 
   buildTicketDetail: function(value){
-    let startDateTimeVal = this.data.startDateTimeVal;
+    let startDateTimeVal = this.data.startDateTimeVal.replace(" ", "T") + ":00.000+0000";
     let ticketDetail = {
-      "departureTime": "2019-12-09T14:57:54.594Z",
+      "departureTime": startDateTimeVal,
       "seats": this.data.loadlimitRange[value.seatCount],
       "price": this.data.prices[value.price],
       "destinationAddresses": this.data.items,

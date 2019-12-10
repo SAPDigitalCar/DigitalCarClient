@@ -1,2 +1,60 @@
-<!--pages/imcustomer/imcustomer.wxml-->
-<text>pages/imcustomer/imcustomer.wxml</text>
+<view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
+    <form bindsubmit="onSubmit" bindreset="onReset">
+  <view class="page__bd">
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell ">
+        <view class="weui-cell__hd">
+          <view class="weui-label">Name</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" placeholder="Wechat Name" />
+        </view>
+      </view>
+      <view class="weui-cell  weui-cell_vcode">
+        <view class="weui-cell__hd">
+          <view class="weui-label">Phone</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" placeholder="Phone Number" />
+        </view>
+      </view>
+      <view class="weui-cell  weui-cell_vcode">
+        <view class="weui-cell__hd">
+          <view class="weui-label">Email</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" placeholder="CompanyEmail" />
+        </view>
+      </view>
+      <view class="weui-cell  weui-cell_vcode">
+        <view class="weui-cell__hd">
+          <view class="weui-label">License Plate</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" placeholder="License Plate" />
+        </view>
+      </view>
+      <view class="weui-cell  weui-cell_vcode">
+        <view class="weui-cell__hd">
+          <view class="weui-label">Describe your car</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" type="text" placeholder="Tell others how it feels by taking your car" />
+        </view>
+      </view>
+      <view class="weui-cell destination">
+          <view class="left">
+           <text>Supported Stations</text>
+           <view class="dest">East Nanjing Road</view>
+          </view> 
+          <view class="right">
+          <picker class="toVal" mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+            <view class="weui-select weui-select_in-select-after">{{Dest}}</view>
+          </picker>
+        </view>
+      </view>
+    </view> 
+  </view>
+  <button class="signUpButton" form-type="submit" bindtap="submitExam">Sign Up</button>
+  </form>
+</view>

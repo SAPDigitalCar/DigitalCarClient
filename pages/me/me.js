@@ -6,16 +6,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo: {    "avatarUrl":"https://wx.qlogo.cn/mmopen/vi_32/gkiaIOSiaOLDBZTQCsRpxWbFbVnflJBJFhdXCq9MN7YnowdpOm9Jj2onYMuyMHZhhzhsRu6vLRo1cUljfaB1UjfA/132",
-    "nickName":"芒果",
-    "gender": 2
-    }
+    userInfo: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
+    this.setData({
+      userInfo: app.globalData.userInfo
+    })
   },
 
   listMyOrders: function () {
