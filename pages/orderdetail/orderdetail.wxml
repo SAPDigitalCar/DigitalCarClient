@@ -40,7 +40,7 @@
   <!-- people in the car -->
   <view class="peopleList">
   <view class="listLBL"> People in this car ({{passengers.length}})</view>
-  <view class="list" wx:for="{{passengers}}">
+  <view class="list" wx:for="{{passengers}}" wx:if="{{index<3}}">
      <image class="listImg" src="{{item.avatarUrl}}" mode="cover"></image>  
      <view class="listNick">{{item.nickname}}</view>
   </view>
