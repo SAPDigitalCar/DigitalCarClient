@@ -1,4 +1,21 @@
 /* pages/completeInfo/completeInfo.wxss */
 .fd{
-   margin-bottom: 100px;
+   margin-top:5px;
+   margin-bottom: 20px;
+}
+.button{
+  background-color: white;
+}
+.info{
+  margin-top:270px;
+  font-size:9px;
+  color:grey;
+  background-color: white;
+}
+.background-image {
+  height: 100%;
+  position: fixed;
+  width: 100%;
+  left: 0px;
+  top: 0px;
 }
