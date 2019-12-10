@@ -78,6 +78,9 @@ Page({
     data.items.push({stopName:data.multiArray[0][e.detail.value[0]]+data.multiArray[1][e.detail.value[1]],
                      id:data.multiIndex[0]*100+data.multiIndex[1]});
     this.setData(data)
+    this.setData({
+      dest: data.multiArray[0][e.detail.value[0]] + data.multiArray[1][e.detail.value[1]]
+    })
   },
   bindMultiPickerColumnChange: function (e) {
     console.log('修改的列为', e.detail.column, '，值为', e.detail.value);
@@ -111,19 +114,15 @@ Page({
   onSubmit: function(event) {
     let value = event.detail.value;
     let userInfo = app.globalData.userInfo
-    let vo = app.globalData.vo
     let userVO = {
                   "avatarUrl": userInfo.avatarUrl,
-                  "createTime": vo.createTime,
                   "email": value.email,
                   "gender": userInfo.gender,
-                  "id": vo.id,
                   "licensePlateNumber": value.license,
                   "nickname": this.data.nickname,
                   "openId": app.globalData.openId,
                   "phone": value.phone,
                   "seatCount": value.seatCount,
-                  "updateTime": vo.updateTime,
                   "carDescription": value.carDescription
                  }
     let addresses = []
@@ -135,14 +134,14 @@ Page({
                       "createTime": "2019-12-08T08:50:09.581Z",
                       "id": id,
                       "updateTime": "2019-12-08T08:50:09.581Z",
-                      "userId": vo.id,
+                      "userId": userInfo.id,
                     });
     }
     let body={"addresses":addresses,"user":userVO}
     wx.request({
       url: app.globalData.host + '/user/create',
       header: {
-        openId: app.globalData.openId
+        openId: "omwhI46lfD6i3wuLQ7U_F-UsvkB8"
       },
       data: body,
       method: 'post',
@@ -218,5 +217,6 @@ Page({
     customItem: '全部',
     loadlimitIndex: 0,
     loadlimitRange: ['Can load 1 person', 'Can load 2 people', 'Can load 3 people', 'Can load 4 people', 'Can load 5 people', 'Can load 6 people'],
+    dest: ''
   }
 })

@@ -1,134 +1,61 @@
-<view class="page">
-  <form bindsubmit="onSubmit" bindreset="onReset">
-    <view class="weui-cells__title">
-      <!-- Owner -->
-    </view>
+<view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
+    <form bindsubmit="onSubmit" bindreset="onReset">
+  <view class="page__bd">
     <view class="weui-cells weui-cells_after-title">
-      <view class="weui-cell weui-cell_input">
+      <view class="weui-cell ">
         <view class="weui-cell__hd">
-          <view class="weui-label">
-            <i-icon type="emoji" size="28" color="#80848f" />
-          </view>
+          <view class="weui-label">Name</view>
         </view>
         <view class="weui-cell__bd">
-            <text>{{nickname}}</text>
+          <input class="weui-input" disabled="true" value="{{nickname}}" /> 
         </view>
       </view>
-    </view>
-
-    <view class="weui-cells__title">
-      <!-- phone number -->
-    </view>
-    <view class="weui-cells weui-cells_after-title">
-      <view class="weui-cell weui-cell_input">
+      <view class="weui-cell  weui-cell_vcode">
         <view class="weui-cell__hd">
-          <view class="weui-label">
-             <i-icon type="mobilephone" size="28" color="#80848f" />           
-          </view>
+          <view class="weui-label">Phone</view>
         </view>
         <view class="weui-cell__bd">
-          <input name="phone" class="weui-input" bindinput="bindUserInput" placeholder="Phone Number(Required)" value="" data-statu="open" />
+          <input name="phone" bindinput="bindUserInput" class="weui-input" placeholder="Phone Number" />
         </view>
       </view>
-    </view>
-    
-    <view class="weui-cells__title">
-      <!-- email -->
-    </view>
-    <view class="weui-cells weui-cells_after-title">
-      <view class="weui-cell weui-cell_input">
+      <view class="weui-cell  weui-cell_vcode">
         <view class="weui-cell__hd">
-          <view class="weui-label">
-            <i-icon type="mail" size="28" color="#80848f" />   
-          </view>
+          <view class="weui-label">Email</view>
         </view>
         <view class="weui-cell__bd">
-          <input name="email" class="weui-input" bindinput="bindUserInput" placeholder="Email(Required)" value="" data-statu="open" />
+          <input name="email" class="weui-input" bindinput="bindUserInput" placeholder="CompanyEmail" />
         </view>
       </view>
-    </view>
-    
-    <block wx:if="{{isDriver}}">
-    <view class="weui-cells__title">
-      <!-- car number -->
-    </view>
-    <view class="weui-cells weui-cells_after-title">
-      <view class="weui-cell weui-cell_input">
+      <view wx:if="{{isDriver}}" class="weui-cell  weui-cell_vcode">
         <view class="weui-cell__hd">
-          <view class="weui-label">
-            <i-icon type="businesscard" size="28" color="#80848f" /> 
-          </view>
+          <view class="weui-label">License Plate</view>
         </view>
         <view class="weui-cell__bd">
-          <input name="license" class="weui-input" bindinput="bindUserInput" placeholder="License(Required)" value="" data-statu="open" />
+          <input name="license" class="weui-input" bindinput="bindUserInput" placeholder="License Plate" />
         </view>
       </view>
-    </view>
-
-    <view class="weui-cells__title">
-      <!-- load limit -->
-    </view>
-    <view class="weui-cells weui-cells_after-title">
-      <view class="weui-cell weui-cell_select">
-        <view class="weui-cell__hd weui-cell__hd_in-select-after">
-          <view class="weui-label">
-             <i-icon type="group" size="28" color="#80848f" />
-          </view>
+      <view wx:if="{{isDriver}}" class="weui-cell  weui-cell_vcode">
+        <view class="weui-cell__hd">
+          <view class="weui-label">Describe your car</view>
         </view>
         <view class="weui-cell__bd">
-          <picker name="seatCount" bindchange="bindLoadlimitChange" value="{{loadlimitIndex}}" range="{{loadlimitRange}}">
-            <view class="weui-select weui-select_in-select-after">{{loadlimitRange[loadlimitIndex]}}</view>
+          <input name="carDescription" class="weui-input" bindinput="bindUserInput"  placeholder="Tell others how it feels by taking your car" />
+        </view>
+      </view>
+      <view class="weui-cell destination">
+          <view class="left">
+           <text wx:if="{{isDriver}}">Supported Stations</text>
+            <text wx:else>Destination</text>
+           <view class="dest">{{dest}}</view>
+          </view> 
+          <view class="right">
+          <picker class="toVal" mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+            <view class="weui-select weui-select_in-select-after">{{Dest}}</view>
           </picker>
         </view>
       </view>
-    </view>
-    </block>
-
-    <view class="weui-cells__title">
-      <!-- carDescription -->
-    </view>
-    <view class="weui-cells weui-cells_after-title">
-      <view class="weui-cell weui-cell_input">
-        <view class="weui-cell__hd">
-          <view class="weui-label">
-             <i-icon type="message" size="28" color="#80848f" />
-          </view>
-        </view>
-        <view class="weui-cell__bd">
-          <input name="carDescription" class="weui-input" bindinput="bindUserInput" placeholder="Describe Your Car" value="" data-statu="open" />
-        </view>
-      </view>
-    </view>
-
-    <block wx:if="{{items.length>0}}">
-    <view class="weui-cells__title">
-      <!-- stop list -->
-    </view>
-    <view class="weui-cells weui-cells_after-title">
-      <view class="weui-cell weui-cell_input">
-        <view class="weui-cell__hd">
-          <view class="weui-label">
-             <i-icon type="coordinates" size="28" color="#80848f" />
-          </view>
-        </view>
-        <view class="weui-cell__bd">
-            <block wx:for="{{items}}">
-                  <view class="weui-cell_input">
-                            <text>{{item.stopName}}</text>
-                  </view>
-            </block>
-        </view>
-      </view>
-    </view>
-    </block>
-    
-    <view class="weui-cells__title">
-      <!-- choose stops -->
-    </view>
-            <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
-                <button class="uniformBtn">Add Stop</button>
-            </picker>
-    
-    <button class="uniformBtn" form-type="submit">Publish</button>
+    </view> 
+  </view>
+  <button class="signUpButton" form-type="submit">Sign Up</button>
   </form>
 </view>
