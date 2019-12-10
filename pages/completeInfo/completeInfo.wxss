@@ -8,6 +8,7 @@
   background-color: white;
 }
 .info{
+  font-weight: normal;
   margin-top:270px;
   font-size:9px;
   color:grey;
