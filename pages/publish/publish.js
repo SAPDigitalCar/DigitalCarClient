@@ -47,15 +47,14 @@ Page({
       method: 'get',
       success: res => {
         if (res.statusCode == 200 && res.data && res.data.data) {
-             if(!res.data.addresses){
+             if(res.data.data.addresses){
                this.setData({
-                 dest: res.data.addresses[0]
+                 dest: res.data.data.addresses[0].address
                })
              }
              this.setData({
-              userInfo: res.data.user,
-            loadlimitIndex: this.data.loadlimitRange.indexOf(res.data.user.seatCount),
-             });
+              userInfo: res.data.data.user
+            });
         } else {
           wx.showToast({
             title: '网络异常，请稍后重试',
