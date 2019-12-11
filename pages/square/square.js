@@ -7,6 +7,7 @@ Page({
    * Page initial data
    */
   data: {
+    licensePlateNumber:null,
     dest: "",
     multiArray: [
       ['1号线', '2号线'],
@@ -86,6 +87,7 @@ Page({
   onShow: function() {
     let that = this;
     if (app.globalData.userInfo) {
+      that.setData({ licensePlateNumber: app.globalData.userInfo.licensePlateNumber })
       if (that.data.dest){
         that.getTicketsInfoWithDest(that.data.dest);
       }
@@ -144,6 +146,7 @@ Page({
   },
 
   goLogin: function(openid) {
+    let that=this
     wx.request({
       url: app.globalData.host + '/user/info',
       header: {
@@ -159,6 +162,7 @@ Page({
             })
           } else { //登陆成功 保存信息
             app.globalData.userInfo = res.data.data
+            that.setData({ licensePlateNumber: res.data.data.licensePlateNumber})
             this.getTicketsInfo();
           }
         } else {

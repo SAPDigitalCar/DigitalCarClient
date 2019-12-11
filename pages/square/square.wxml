@@ -38,5 +38,5 @@
       </view>
     </view>
   </view>
-  <view bindtap="onPublishClick" wx:if="{{app.globalData.userInfo.licensePlateNumber}}" class="publish-btn"></view>
+  <view bindtap="onPublishClick" wx:if="{{licensePlateNumber}}" class="publish-btn"></view>
 </view>
