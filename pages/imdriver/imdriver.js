@@ -121,24 +121,17 @@ Page({
                   "email": value.email,
                   "gender": userInfo.gender,
                   "licensePlateNumber": value.license,
-                  "nickname": userInfo.nickname,
+                  "nickname": userInfo.nickName,
                   "openId": app.globalData.openId,
                   "phone": value.phone,
                   "seatCount": value.seatCount,
                   "carDescription": value.carDescription
                  }
     let addresses = []
-    for (var i = 0; i < this.data.items.length; i++) {
-      var t = this.data.items[i].stopName;
-      var id = this.data.items[i].id;
-      addresses.push({
-                      "address": t,
-                      "createTime": "2019-12-08T08:50:09.581Z",
-                      "id": id,
-                      "updateTime": "2019-12-08T08:50:09.581Z",
-                      "userId": userInfo.id,
-                    });
-    }
+    addresses.push({
+      "address": this.data.dest,
+      "userId": userInfo.id,
+    });
     let body={"addresses":addresses,"user":userVO}
     wx.request({
       url: app.globalData.host + '/user/create',
