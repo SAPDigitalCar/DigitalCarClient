@@ -1,13 +1,11 @@
 <!--pages/completeInfo/completeInfo.wxml-->
 <view class="container">
     <image class='background-image' src='../../images/Launch_page_png.png' mode="aspectFill"></image>
+      <view class="info">Sign up as</view>
     <view>
-      <button class="info">Sign up as</button>
+      <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" bindtap="imcustomer" class="button passenger"> Passenger </button>
     </view>
     <view>
-      <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" bindtap="imcustomer" class="button fd"> Passenger </button>
-    </view>
-    <view>
-      <button class="button" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" bindtap="imdriver"> Car Owner </button>
+      <button class="button carOwner" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" bindtap="imdriver"> Car Owner </button>
     </view>
 </view>

@@ -1,18 +1,31 @@
 /* pages/completeInfo/completeInfo.wxss */
-.fd{
-   margin-top:0px;
-   margin-bottom: 20px;
+.passenger{
+   margin-top:630rpx;
+   margin-bottom: 26rpx;
+   font-weight: bold;
+}
+
+.carOwner {
+  margin-top: 16rpx;
+  font-weight: bold;
 }
 .button{
-  font-weight: normal;
+  /* font-weight: normal; */
   background-color: white;
 }
+
+.button::after {
+  border: none;
+}
+
 .info{
+  position: absolute;
   font-weight: normal;
   margin-top:315px;
-  font-size:9px;
+  font-size:26rpx;
   color:grey;
-  background-color: white;
+  z-index: 99;
+  text-align: center;
 }
 .background-image {
   height: 100%;
