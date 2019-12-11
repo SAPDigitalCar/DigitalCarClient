@@ -124,43 +124,67 @@ Page({
 
   onSubmit: function (event) {
     let value = event.detail.value;
-    let ticketDetail = this.buildTicketDetail(value);
-    wx.request({
-      url: app.globalData.host + '/ticket/save',
-      header: {
-        openId: app.globalData.openId
-      },
-      data: ticketDetail,
-      method: 'post',
-      success: res => {
-        if (res.statusCode == 200 && res.data && res.data.data) {
+    if(!value.price) {
+      wx.showToast({
+        title: 'Please enter prive and publish again',
+        duration: 2000,
+        icon: 'none'
+      });
+      return;
+    } else if (!value.seatCount) {
+      wx.showToast({
+        title: 'Please enter number of seats you can provide and publish again',
+        duration: 2000,
+        icon: 'none'
+      });
+      return;
+    } else if (!value.boarding) {
+      wx.showToast({
+        title: 'Please enter a place to meet and publish again',
+        duration: 2000,
+        icon: 'none'
+      });
+      return;
+    } else {
+      let ticketDetail = this.buildTicketDetail(value);
+      wx.request({
+        url: app.globalData.host + '/ticket/save',
+        header: {
+          openId: app.globalData.openId
+        },
+        data: ticketDetail,
+        method: 'post',
+        success: res => {
+          if (res.statusCode == 200 && res.data && res.data.data) {
+            wx.showToast({
+              title: 'Success',
+              duration: 1500,
+              icon: 'success'
+            })
+            setTimeout(function () {
+              wx.navigateBack({
+                delta: 1
+              });
+            }, 1000);
+          } else {
+            wx.showToast({
+              title: '网络异常，请稍后重试',
+              duration: 10000,
+              icon: 'none'
+            })
+          }
+        },
+        fail: function (error) {
+          console.log(error)
           wx.showToast({
-            title: 'Success',
-            duration: 1500,
-            icon: 'success'
-          })
-          setTimeout(function () {
-            wx.navigateBack({
-              delta: 1
-            });
-          }, 1000);
-        } else {
-          wx.showToast({
-            title: '网络异常，请稍后重试',
-            duration: 10000,
+            title: '登录失败，请检查网络稍后重试',
+            duration: 2000,
             icon: 'none'
           })
         }
-      },
-      fail: function (error) {
-        console.log(error)
-        wx.showToast({
-          title: '登录失败，请检查网络稍后重试',
-          duration: 2000,
-          icon: 'none'
-        })
-      }
-    });
+      });
+    }
+    
   },
 
   bindVenuesChange: function(e){
