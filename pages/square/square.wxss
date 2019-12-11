@@ -36,10 +36,12 @@ page {
   height: 180rpx;
   border: 1px silver solid;
   background-color: #ffffff;
+  justify-content: center;
 }
 
 .leftContent, .rightContent {
-  display: block;
+  display: flex;
+  flex-direction: column;
 }
 
 .leftContent {
@@ -50,7 +52,7 @@ page {
 
 .rightContent {
   margin: 0 20rpx;
-  padding: 10rpx 20rpx;
+  padding: 20rpx 20rpx;
   flex: 1;
 }
 
