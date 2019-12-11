@@ -24,6 +24,10 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function(options) {
+    wx.showLoading({
+      title: 'Loading',
+      mask: true
+    })
     this.loadDetail(options.id);
   },
 
@@ -86,6 +90,7 @@ Page({
       },
       method: 'get',
       success: res => {
+        wx.hideLoading();
         if (res.statusCode == 200 && res.data && res.data.data) {
           that.setData({
             ticketDetail: res.data.data,
