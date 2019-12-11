@@ -16,6 +16,7 @@ page {
 .weui-label{
   margin-top: 4rpx;
   width: 100%;
+  color: #76767B;
 }
 .weui-input{
   height: 2em;
@@ -23,6 +24,7 @@ page {
   line-height: 2em;
   width: 600rpx;
   text-overflow: ellipsis;
+  color:#3F3A3A;
 }
 
 .weui-cell__bd {
@@ -35,7 +37,9 @@ page {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   padding-right: 0rpx;
+  padding-bottom: 28rpx;
 }
 
 .destination .left{
@@ -43,9 +47,14 @@ page {
   flex-direction: column;
 }
 
+.left text{
+  color: #76767B;
+}
+
 .dest{
+  margin-top: 10rpx;
   font-size: 30rpx;
-  color: rgb(82, 84, 87);
+  color: #3F3A3A;
 }
 
 .destination .right{
@@ -58,6 +67,11 @@ page {
   bottom: 4rpx; 
   background-color: #ffffff;  
   color: #445E7F;
+}
+
+
+.phcolor{
+    color: #cccccc;
 }
 
 

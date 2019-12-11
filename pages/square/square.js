@@ -18,6 +18,10 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
+    wx.showLoading({
+      title: 'Loading',
+      mask: true
+    })
     let openId = app.globalData.openId
     if (!openId) {
       this.getOpenId();
@@ -210,6 +214,7 @@ Page({
       },
       method: 'get',
       success: res => {
+        wx.hideLoading();
         if (res.statusCode == 200 ){
 
         } else {

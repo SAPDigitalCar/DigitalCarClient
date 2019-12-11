@@ -16,7 +16,9 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-
+    this.setData({
+      dest: this.data.multiArray[0][0] + this.data.multiArray[1][0]
+    })
   },
 
   /**

@@ -2,5 +2,5 @@
 
 .publishbtn {
   margin-top: 20rpx;
-  background-color: #ff9900;
+  background-color: #445E7F;
 }

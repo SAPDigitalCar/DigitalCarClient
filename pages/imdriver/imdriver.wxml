@@ -15,7 +15,7 @@
           <view class="weui-label">Phone</view>
         </view>
         <view class="weui-cell__bd">
-          <input name="phone" bindinput="bindUserInput" class="weui-input" placeholder="Phone Number" />
+          <input name="phone" bindinput="bindUserInput" class="weui-input" placeholder="Phone Number" placeholder-class="phcolor"/>
         </view>
       </view>
       <view class="weui-cell  weui-cell_vcode">
@@ -23,7 +23,7 @@
           <view class="weui-label">Email</view>
         </view>
         <view class="weui-cell__bd">
-          <input name="email" class="weui-input" bindinput="bindUserInput" placeholder="CompanyEmail" />
+          <input name="email" class="weui-input" bindinput="bindUserInput" placeholder="CompanyEmail" placeholder-class="phcolor"/>
         </view>
       </view>
       <view wx:if="{{isDriver}}" class="weui-cell  weui-cell_vcode">
@@ -31,7 +31,7 @@
           <view class="weui-label">License Plate</view>
         </view>
         <view class="weui-cell__bd">
-          <input name="license" class="weui-input" bindinput="bindUserInput" placeholder="License Plate" />
+          <input name="license" class="weui-input" bindinput="bindUserInput" placeholder="License Plate" placeholder-class="phcolor"/>
         </view>
       </view>
       <view wx:if="{{isDriver}}" class="weui-cell  weui-cell_vcode">
@@ -39,7 +39,7 @@
           <view class="weui-label">Describe your car</view>
         </view>
         <view class="weui-cell__bd">
-          <input name="carDescription" class="weui-input" bindinput="bindUserInput"  placeholder="Tell others how it feels by taking your car" />
+          <input name="carDescription" class="weui-input" bindinput="bindUserInput"  placeholder="Tell others how it feels by taking your car" placeholder-class="phcolor"/>
         </view>
       </view>
       <view class="weui-cell destination">
