@@ -221,11 +221,11 @@ Page({
     let addressList = [];
     addressList.push(this.data.dest);
     let departureAddresses = [];
-    departureAddresses.push(this.data.venues[value.venue]);
+    departureAddresses.push(value.boarding);
     let ticketDetail = {
       "departureTime": startDateTimeVal,
-      "seats": this.data.loadlimitRange[value.seatCount],
-      "price": this.data.prices[value.price],
+      "seats": value.seatCount,
+      "price": value.price,
       "destinationAddresses": addressList,
       "userId": this.data.userInfo.id,
       "departureAddresses": departureAddresses
