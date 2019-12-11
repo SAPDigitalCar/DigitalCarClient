@@ -87,7 +87,7 @@ Page({
   onShow: function() {
     let that = this;
     if (app.globalData.userInfo) {
-      that.getTicketsInfo();
+      that.getTicketsInfoWithDest();
     }
   },
 
@@ -246,7 +246,6 @@ Page({
   },
   getTicketsInfo: function() {
     let that = this;
-
     wx.request({
       url: app.globalData.host + '/square/all',
       header: {
