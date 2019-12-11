@@ -121,7 +121,7 @@ Page({
                   "email": value.email,
                   "gender": userInfo.gender,
                   "licensePlateNumber": value.license,
-                  "nickname": this.data.nickname,
+                  "nickname": userInfo.nickname,
                   "openId": app.globalData.openId,
                   "phone": value.phone,
                   "seatCount": value.seatCount,
@@ -143,7 +143,7 @@ Page({
     wx.request({
       url: app.globalData.host + '/user/create',
       header: {
-        openId: "omwhI46lfD6i3wuLQ7U_F-UsvkB8"
+        openId: app.globalData.openId
       },
       data: body,
       method: 'post',
