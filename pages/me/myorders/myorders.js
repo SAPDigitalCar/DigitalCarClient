@@ -27,6 +27,13 @@ Page({
       method: 'get',
       success: res => {
         if (res.statusCode == 200) {
+            if (res.data.data.length == 0) {
+              wx.showToast({
+                title: "You don't have any order yet :)",
+                duration: 2000,
+                icon: 'none',
+              })
+            }
             this.setData({
               myOrders: res.data.data
             })
