@@ -17,11 +17,11 @@ Page({
     endYear: 2119,
     prices: [10, 15, 20],
     pricesIndex: 0,
-    items: ['1号线莘庄', '1号线外环路', '1号线莲花路'],
     venues: ["Labs' gate", "ChangTai square"],
     venuesIndex: 0,
-    destArray: [['1号线', '2号线'], ['莘庄', '外环路', '莲花路', '锦江乐园', '上海南站', '漕宝路', '上海体育馆', '徐家汇', '衡山路', '常熟路', '陕西南路', '黄陂南路', '人民广场', '新闸路', '汉中路', '上海火车站', '中山北路', '延长路', '上海马戏城', '汶水路', '彭浦新村', '共康路', '通河新村', '呼兰路', '共富新村', '宝安公路', '友谊西路', '富锦路']],
-    destIndex: [0, 0],
+    multiArray: [['1号线', '2号线'], ['莘庄', '外环路', '莲花路', '锦江乐园', '上海南站', '漕宝路', '上海体育馆', '徐家汇', '衡山路', '常熟路', '陕西南路', '黄陂南路', '人民广场', '新闸路', '汉中路', '上海火车站', '中山北路', '延长路', '上海马戏城', '汶水路', '彭浦新村', '共康路', '通河新村', '呼兰路', '共富新村', '宝安公路', '友谊西路', '富锦路']],
+    multiIndex: [0, 0],
+    dest: '',
     loadlimitIndex: 0,
     loadlimitRange: [1, 2, 3, 4, 5, 6]
   },
@@ -31,16 +31,56 @@ Page({
    */
   onLoad: function (options) {
     this._initDateTimePicker();
-   // this.getUserDetails();
-    this.data.userInfo = app.globalData.userInfo;
+    this.loadUserWithAddress();
     this.setData({
-      loadlimitIndex: this.data.loadlimitRange.indexOf(this.data.userInfo.seatCount)
-    });
-    console.log('loadlimitIndex: ' + this.data.loadlimitIndex);
+      dest: this.data.multiArray[0][0] + this.data.multiArray[1][0]
+    })
+    // this.data.userInfo = app.globalData.userInfo;
+    // this.setData({
+    //   loadlimitIndex: this.data.loadlimitRange.indexOf(this.data.userInfo.seatCount)
+    // });
+    // console.log('loadlimitIndex: ' + this.data.loadlimitIndex);
   },
 
   bindLoadlimitChange: function (e) {
     this.setData({ 'loadlimitIndex': e.detail.value });
+  },
+
+  loadUserWithAddress: function () {
+    wx.request({
+      url: app.globalData.host + '/address/all',
+      header: {
+        openId: app.globalData.openId
+      },
+      method: 'get',
+      success: res => {
+        if (res.statusCode == 200 && res.data && res.data.data) {
+             if(!res.data.address){
+               this.setData({
+                 desc: address[0]
+               })
+             }
+             this.setData({
+              userInfo: res.data.user,
+            loadlimitIndex: this.data.loadlimitRange.indexOf(res.data.user.seatCount),
+             });
+        } else {
+          wx.showToast({
+            title: '网络异常，请稍后重试',
+            duration: 10000,
+            icon: 'none'
+          })
+        }
+      },
+      fail: function (error) {
+        console.log(error)
+        wx.showToast({
+          title: '登录失败，请检查网络稍后重试',
+          duration: 2000,
+          icon: 'none'
+        })
+      }
+    });
   },
  /*
    * 生命周期函数--监听页面初次渲染完成
@@ -132,15 +172,63 @@ Page({
     });
   },
 
+  bindVenuesChange: function(e){
+    this.setData({
+      venuesIndex: e.detail.value
+    })
+  },
+
+  bindPriceChange: function(e){
+    this.setData({
+      pricesIndex : e.detail.value
+    })
+  },
+
+  bindMultiPickerChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    let newLine = this.data.multiArray[0][e.detail.value[0]];
+    let newStop = this.data.multiArray[1][e.detail.value[1]];
+    this.setData({
+      dest: newLine + newStop
+    })
+  },
+  bindMultiPickerColumnChange: function (e) {
+    console.log('修改的列为', e.detail.column, '，值为', e.detail.value);
+    var data = {
+      multiArray: this.data.multiArray,
+      multiIndex: this.data.multiIndex,
+    };
+    data.multiIndex[e.detail.column] = e.detail.value;
+    switch (e.detail.column) {
+      case 0:
+        switch (data.multiIndex[0]) {
+          case 1:
+            data.multiArray[1] = ['徐泾东', '虹桥火车站', '虹桥2号航站楼', '淞虹路', '北新泾', '威宁路', '娄山关路', '中山公园', '江苏路', '静安寺', '南京西路', '人民广场', '南京东路', '陆家嘴', '东昌路', '世纪大道', '上海科技馆', '世纪公园', '龙阳路', '张江高科', '金科路', '广兰路', '唐镇', '创新中路', '华夏东路', '川沙', '凌空路', '远东大道', '海天三路', '浦东国际机场'];
+            break;
+          case 0:
+            data.multiArray[1] = ['莘庄', '外环路', '莲花路', '锦江乐园', '上海南站', '漕宝路', '上海体育馆', '徐家汇', '衡山路', '常熟路', '陕西南路', '黄陂南路', '人民广场', '新闸路', '汉中路', '上海火车站', '中山北路', '延长路', '上海马戏城', '汶水路', '彭浦新村', '共康路', '通河新村', '呼兰路', '共富新村', '宝安公路', '友谊西路', '富锦路'];
+            break;
+        }
+        data.multiIndex[1] = 0;
+        break;
+    }
+    console.log(data.multiIndex);
+    this.setData(data);
+  },
+
   buildTicketDetail: function(value){
     let startDateTimeVal = this.data.startDateTimeVal.replace(" ", "T") + ":00.000+0000";
+    let addressList = [];
+    addressList.push(this.data.dest);
+    let departureAddresses = [];
+    departureAddresses.push(this.data.venues[value.venue]);
     let ticketDetail = {
       "departureTime": startDateTimeVal,
       "seats": this.data.loadlimitRange[value.seatCount],
       "price": this.data.prices[value.price],
-      "destinationAddresses": this.data.items,
+      "destinationAddresses": addressList,
       "userId": this.data.userInfo.id,
-      "departureAddresses": this.data.venues
+      "departureAddresses": departureAddresses
     };
     return ticketDetail;
   },
