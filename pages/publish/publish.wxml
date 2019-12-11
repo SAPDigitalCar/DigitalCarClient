@@ -19,7 +19,7 @@
           </view>
           <view class="time-right">
               <picker class="toVal" mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
-            <view class="weui-select weui-select_in-select-after">Weekdays</view>
+            <view class="weui-select weui-select_in-select-after"><view class="time-week">Weekdays</view></view>
             </picker>
             </view>
         </view>

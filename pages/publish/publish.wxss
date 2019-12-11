@@ -54,7 +54,11 @@ page {
 }
 
 .date_time{
-    color:#3F3A3A;
+  color:#3F3A3A;
+}
+
+.time-week{
+  color:#3F3A3A;
 }
 
 .destination{

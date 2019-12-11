@@ -57,7 +57,7 @@ Page({
         if (res.statusCode == 200 && res.data && res.data.data) {
              if(!res.data.address){
                this.setData({
-                 desc: address[0]
+                 dest: address[0]
                })
              }
              this.setData({
