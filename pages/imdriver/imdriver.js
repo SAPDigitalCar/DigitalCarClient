@@ -121,7 +121,7 @@ Page({
                   "email": value.email,
                   "gender": userInfo.gender,
                   "licensePlateNumber": value.license,
-                  "nickname": this.data.nickname,
+                  "nickname": value.nickname,
                   "openId": app.globalData.openId,
                   "phone": value.phone,
                   "seatCount": value.seatCount,
