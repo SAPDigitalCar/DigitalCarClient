@@ -204,7 +204,7 @@ Page({
     let that = this;
     
     wx.request({
-      url: app.globalData.host + '/ticket/match',
+      url: app.globalData.host + '/square/all',
       header: {
         openId: app.globalData.openId
       },
