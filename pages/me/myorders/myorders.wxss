@@ -18,7 +18,7 @@ page {
   color:black;
 }
 .greentxt {
-  color:#5cb810a9
+  color:#3A835B
 }
 .graytxt {
   font-size: 30rpx;
