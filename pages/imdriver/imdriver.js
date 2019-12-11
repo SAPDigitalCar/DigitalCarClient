@@ -115,48 +115,79 @@ Page({
 
   onSubmit: function(event) {
     let value = event.detail.value;
-    let userInfo = app.globalData.userInfo
-    let userVO = {
-                  "avatarUrl": userInfo.avatarUrl,
-                  "email": value.email,
-                  "gender": userInfo.gender,
-                  "licensePlateNumber": value.license,
-                  "nickname": userInfo.nickName,
-                  "openId": app.globalData.openId,
-                  "phone": value.phone,
-                  "seatCount": value.seatCount,
-                  "carDescription": value.carDescription
-                 }
-    let addresses = []
-    addresses.push({
-      "address": this.data.dest,
-      "userId": userInfo.id,
-    });
-    let body={"addresses":addresses,"user":userVO}
-    wx.request({
-      url: app.globalData.host + '/user/create',
-      header: {
-        openId: app.globalData.openId
-      },
-      data: body,
-      method: 'post',
-      success: res => {
-        if (res.statusCode == 200 && res.data) {
-          app.globalData.userInfo=res.data.data.user;
-          wx.switchTab({
-            url: '/pages/square/square'
+    if (!value.phone){
+      wx.showToast({
+        title: 'Please enter phone Number and sign up again',
+        duration: 2000,
+        icon: 'none'
+      });
+      return;
+    } else if (value.email.split('@')[1] !== 'sap.com'){
+      wx.showToast({
+        title: 'Please enter company and sign up again',
+        duration: 2000,
+        icon: 'none'
+      });
+      return;
+    } else if (app.globalData.isDriver && !value.license) {
+      wx.showToast({
+        title: 'Please enter License Plate and sign up again',
+        duration: 2000,
+        icon: 'none'
+      });
+      return;
+    } else if (!value.carDescription) {
+      wx.showToast({
+        title: 'Please enter something to descrip your car and sign up again',
+        duration: 2000,
+        icon: 'none'
+      });
+      return;
+    } else {
+      let userInfo = app.globalData.userInfo
+      let userVO = {
+        "avatarUrl": userInfo.avatarUrl,
+        "email": value.email,
+        "gender": userInfo.gender,
+        "licensePlateNumber": value.license,
+        "nickname": userInfo.nickName,
+        "openId": app.globalData.openId,
+        "phone": value.phone,
+        "seatCount": value.seatCount,
+        "carDescription": value.carDescription
+      }
+      let addresses = []
+      addresses.push({
+        "address": this.data.dest,
+        "userId": userInfo.id,
+      });
+      let body = { "addresses": addresses, "user": userVO }
+      wx.request({
+        url: app.globalData.host + '/user/create',
+        header: {
+          openId: app.globalData.openId
+        },
+        data: body,
+        method: 'post',
+        success: res => {
+          if (res.statusCode == 200 && res.data) {
+            app.globalData.userInfo = res.data.data.user;
+            wx.switchTab({
+              url: '/pages/square/square'
+            })
+          }
+        },
+        fail: function (error) {
+          console.log(error)
+          wx.showToast({
+            title: 'Save User Fail.',
+            duration: 2000,
+            icon: 'none'
           })
         }
-      },
-      fail: function (error) {
-        console.log(error)
-        wx.showToast({
-          title: 'Save User Fail.',
-          duration: 2000,
-          icon: 'none'
-        })
-      }
-    });
+      });
+    }
+    
   },
 
   data: {
