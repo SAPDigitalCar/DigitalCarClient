@@ -13,7 +13,6 @@ Page({
       ['莘庄', '外环路', '莲花路', '锦江乐园', '上海南站', '漕宝路', '上海体育馆', '徐家汇', '衡山路', '常熟路', '陕西南路', '黄陂南路', '人民广场', '新闸路', '汉中路', '上海火车站', '中山北路', '延长路', '上海马戏城', '汶水路', '彭浦新村', '共康路', '通河新村', '呼兰路', '共富新村', '宝安公路', '友谊西路', '富锦路']
     ],
     multiIndex: [0, 0],
-    //   tickets: [{ 'id': 1, 'time': '17:45', 'description': 'Big seats with free snacks', 'seats': 3, 'price': 20 }, { 'id': 2, 'time': '17:45', 'description': 'Big seats with free snacks', 'seats': 3, 'price': 20 }, { 'id': 3, 'time': '17:45', 'description': 'Big seats with free snacks', 'seats': 3, 'price': 20 }]
     tickets: []
   },
 
@@ -87,7 +86,12 @@ Page({
   onShow: function() {
     let that = this;
     if (app.globalData.userInfo) {
-      that.getTicketsInfoWithDest(that.data.dest);
+      if (that.data.dest){
+        that.getTicketsInfoWithDest(that.data.dest);
+      }
+      else {
+        that.getTicketsInfo();
+      }
     }
   },
 
