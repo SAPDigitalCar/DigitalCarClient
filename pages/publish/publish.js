@@ -55,9 +55,9 @@ Page({
       method: 'get',
       success: res => {
         if (res.statusCode == 200 && res.data && res.data.data) {
-             if(!res.data.address){
+             if(!res.data.addresses){
                this.setData({
-                 dest: address[0]
+                 dest: res.data.addresses[0]
                })
              }
              this.setData({
