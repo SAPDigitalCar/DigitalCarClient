@@ -99,7 +99,7 @@ Page({
             ticket: res.data.data.ticket,
             licensePlateNumber: res.data.data.driver.licensePlateNumber,
             carDescription: res.data.data.driver.carDescription,
-            seatCount: res.data.data.driver.seatCount,
+            seatCount: res.data.data.ticket.seats,
             nickName: res.data.data.driver.nickname,
             avatarUrl: res.data.data.driver.avatarUrl,
             departureTime: res.data.data.ticket.departureTime,

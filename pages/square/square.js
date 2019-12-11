@@ -87,7 +87,7 @@ Page({
   onShow: function() {
     let that = this;
     if (app.globalData.userInfo) {
-      that.getTicketsInfoWithDest();
+      that.getTicketsInfoWithDest(that.data.dest);
     }
   },
 
