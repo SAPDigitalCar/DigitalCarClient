@@ -32,14 +32,6 @@ Page({
   onLoad: function (options) {
     this._initDateTimePicker();
     this.loadUserWithAddress();
-    this.setData({
-      dest: this.data.multiArray[0][0] + this.data.multiArray[1][0]
-    })
-    // this.data.userInfo = app.globalData.userInfo;
-    // this.setData({
-    //   loadlimitIndex: this.data.loadlimitRange.indexOf(this.data.userInfo.seatCount)
-    // });
-    // console.log('loadlimitIndex: ' + this.data.loadlimitIndex);
   },
 
   bindLoadlimitChange: function (e) {
