@@ -1,22 +1,24 @@
 <view class="page">
   <view class="orderInfo" wx:for="{{myOrders}}" wx:key="index">
     <view class="time">
-      <view class="time-left">
-        <image src="../../../images/order-time.png" class="icon"></image>
-        <text>{{item.departureTime}}</text>
-      </view>
+    <view class="time left">
+      <!--<image src="../../../images/order-start.png" class="icon"></image>-->
+      <text class="totxt">To {{item.ticket.destinationAddresses[0]}}</text>
+    </view>
       <view class="time-right">
-        <text>已完成</text>
+        <text>In Process</text>
         <image src="../../../images/arrow-right.png"></image>
       </view>
     </view>
+    <!--
     <view class="departure">
       <image src="../../../images/order-end.png" class="icon"></image>
-      <text>{{item.departureAddresses[0]}}</text>
+      <text>{{item.ticket.departureAddresses[0]}}</text>
     </view>
-    <view class="destination">
-      <image src="../../../images/order-start.png" class="icon"></image>
-      <text>{{item.destinationAddresses[0]}}</text>
-    </view>
-  </view>
+    -->
+      <view class="destination">
+        <!--<image src="../../../images/order-time.png" class="icon"></image>-->
+        <text>{{item.ticket.departureTime}}</text>
+      </view>
+      </view>
 </view>

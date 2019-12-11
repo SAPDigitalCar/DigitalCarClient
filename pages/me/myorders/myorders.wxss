@@ -6,9 +6,8 @@ page {
 
 .orderInfo {
   width: 90%;
-  height: 150rpx;
   padding: 20rpx;
-  margin: 15rpx 20rpx;
+  margin: 0rpx 20rpx;
   background-color: #fff;
   display: flex;
   flex-direction: column;
@@ -16,7 +15,7 @@ page {
 
 .orderInfo text {
   font-size: 30rpx;
-  color: #606060;
+  color: black;
 }
 
 .time-left {
@@ -38,6 +37,7 @@ page {
 .time {
   display: flex;
   justify-content: space-between;
+
 }
 
 .departure {
@@ -51,4 +51,8 @@ page {
 .icon {
   width: 50rpx;
   height: 50rpx;
+}
+.totxt{
+  font-weight: bold;
+  color:black;
 }

@@ -20,7 +20,7 @@ Page({
     let that = this;
     let myOpenId = app.globalData.openId
     wx.request({
-      url: app.globalData.host + '/ticket/list',
+      url: app.globalData.host + '/order/list',
       header: {
         openId: myOpenId
       },
