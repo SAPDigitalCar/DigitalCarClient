@@ -23,15 +23,17 @@
   <view class="ticketsSection">
     <view class="infoLBL">We found {{tickets.length}} available cars for you. </view>
     <!-- tickets information -->
-    <view id="{{item.id}}" bindtap='goDetail' class="ticketItem" wx:for="{{tickets}}" wx:key="id">
+    <view id="{{item.ticket.id}}" bindtap='goDetail' class="ticketItem" wx:for="{{tickets}}" wx:key="id">
       <view class='leftContent'>
         <view class="leftLBL">Departure time</view>
-        <view class="time">{{item.departureTime}}</view>
+        <view class="time">{{item.ticket.departureTime}}</view>
       </view>
       <view class="rightContent">
-        <view class="description">{{item.description}}</view>
-        <view class="seats">{{item.seats}} available seats</view>
-        <view class="price">￥{{item.price}} / person</view>
+        
+        <view class="description" wx:if="{{item.driver.carDescription}}">{{item.driver.carDescription}}</view>
+        <view class="description" wx:else>No Description Yet</view>
+        <view class="seats">{{item.ticket.seats}} available seats</view>
+        <view class="price">￥{{item.ticket.price}} / person</view>
       </view>
     </view>
   </view>

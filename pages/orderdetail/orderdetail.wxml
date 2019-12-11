@@ -6,7 +6,8 @@
       </view>
       <view class="weui-cell__bd">
         <view class="license">{{licensePlateNumber}}</view>
-        <view class="description">{{carDescription}}</view>
+        <view wx:if="{{carDescription}}" class="description">{{carDescription}}</view>
+        <view wx:else class="description">No description Yet</view>
         <view class="seats">{{seatCount}} available seats left</view>
       </view>
     </view>
@@ -38,7 +39,7 @@
   </view>
 
   <!-- people in the car -->
-  <view class="peopleList">
+  <view class="peopleList" wx:if="{{passengers.length !== 0}}">
   <view class="listLBL"> People in this car ({{passengers.length}})</view>
   <view class="list" wx:for="{{passengers}}" wx:if="{{index<3}}">
      <image class="listImg" src="{{item.avatarUrl}}" mode="cover"></image>  
