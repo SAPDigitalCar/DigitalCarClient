@@ -7,15 +7,22 @@ page {
 .orderInfo {
   width: 90%;
   padding: 20rpx;
-  margin: 0rpx 20rpx;
+  margin: 15rpx 20rpx;
   background-color: #fff;
   display: flex;
   flex-direction: column;
 }
 
-.orderInfo text {
+.totxt{
+  font-weight: bold;
+  color:black;
+}
+.greentxt {
+  color:#5cb810a9
+}
+.graytxt {
   font-size: 30rpx;
-  color: black;
+  color:#606060;
 }
 
 .time-left {
@@ -52,7 +59,4 @@ page {
   width: 50rpx;
   height: 50rpx;
 }
-.totxt{
-  font-weight: bold;
-  color:black;
-}
+

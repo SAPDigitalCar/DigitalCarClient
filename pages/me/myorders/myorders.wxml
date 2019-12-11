@@ -1,3 +1,7 @@
+<wxs src="../../../utils/formatter.wxs" module="formatter">
+</wxs>
+
+
 <view class="page">
   <view class="orderInfo" wx:for="{{myOrders}}" wx:key="index">
     <view class="time">
@@ -6,7 +10,8 @@
       <text class="totxt">To {{item.ticket.destinationAddresses[0]}}</text>
     </view>
       <view class="time-right">
-        <text>In Process</text>
+        <text class="greentxt" wx:if="{{index==0}}">In Process</text>
+        <text class="graytxt" wx:if="{{index>0}}">Complete</text>
         <image src="../../../images/arrow-right.png"></image>
       </view>
     </view>
@@ -18,7 +23,7 @@
     -->
       <view class="destination">
         <!--<image src="../../../images/order-time.png" class="icon"></image>-->
-        <text>{{item.ticket.departureTime}}</text>
+        <text class="graytxt">{{formatter.getTimeWithDate(item.ticket.departureTime)}}</text>
       </view>
       </view>
 </view>
