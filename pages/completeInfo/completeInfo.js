@@ -116,7 +116,6 @@ Page({
     this.setData({auth: true})
     app.globalData.userInfo = e.detail.userInfo
     console.log(e.detail.userInfo)
-
     wx.navigateTo({
       url: '/pages/imdriver/imdriver'
     })
