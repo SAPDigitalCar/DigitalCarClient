@@ -121,6 +121,13 @@ Page({
     });
   },
 
+  // sendMessage: function(){
+  //   wx.request({
+
+  //   })
+
+
+  // }
 
 
   tryJoin: function() {
@@ -139,15 +146,30 @@ Page({
           method: 'post',
           success: res => {
             if (res.statusCode == 200 && res.data) {
-              wx.switchTab({
-                url: '/pages/square/square'
-              })
-              wx.showToast({
-                title: "Seats Reserved",
-                duration: 2000,
-                icon: 'success',
-                width: 100,
-              })
+              wx.requestSubscribeMessage({
+                tmplIds: ['AMrTjuKs163p6F35h_dnd3M5NqhIkS2uRBBOoRiGADE'],
+                success(res) { 
+                  console.log("res: " + res);
+                  wx.navigateBack({
+                    delta: 1
+                  });
+                  wx.showToast({
+                    title: "Seats Reserved",
+                    duration: 2000,
+                    icon: 'success',
+                    width: 100,
+                  });
+                }
+              });
+              // wx.switchTab({
+              //   url: '/pages/square/square'
+              // })
+              // wx.showToast({
+              //   title: "Seats Reserved",
+              //   duration: 2000,
+              //   icon: 'success',
+              //   width: 100,
+              // })
             }
           },
           fail: function(error) {
