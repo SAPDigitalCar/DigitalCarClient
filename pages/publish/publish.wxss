@@ -89,12 +89,18 @@ page {
   width: 50%;
 }
 
-.signUpButton{
+/* .signUpButton{
   width: 100%;
   position: fixed;
   bottom: 4rpx; 
   background-color: #ffffff;  
   color: #445E7F;
+} */
+
+.signUpButton {
+  color: #445E7F;
+  background-color: #ffffff;
+  margin: 60rpx 0 60rpx 0;
 }
 
 

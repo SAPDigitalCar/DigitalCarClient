@@ -16,7 +16,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#445E7F",
-    "navigationBarTitleText": "Car Direct",
+    "navigationBarTitleText": "Digital Car",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
@@ -27,13 +27,13 @@
     "list": [
       {
         "pagePath": "pages/square/square",
-        "text": "Square",
+        "text": "CarPool",
         "iconPath": "images/car-alt.png",
         "selectedIconPath": "images/car-alt_select.png"
       },
       {
         "pagePath": "pages/share/share",
-        "text": "Share",
+        "text": "LotShare",
         "iconPath": "images/parking.png",
         "selectedIconPath": "images/parking_select.png"
       },
