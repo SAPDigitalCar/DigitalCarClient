@@ -1,2 +1,4 @@
 <!--pages/share/share.wxml-->
-<text>pages/share/share.wxml</text>
+<view class="container">
+    <image class='background-image' src='../../images/Launch_page_png.png' mode="aspectFill"></image>
+</view>

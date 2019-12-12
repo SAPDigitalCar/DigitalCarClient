@@ -1,1 +1,9 @@
 /* pages/share/share.wxss */
+
+.background-image {
+  height: 100%;
+  position: fixed;
+  width: 100%;
+  left: 0px;
+  top: 0px;
+}
