@@ -1,9 +1,113 @@
 /* pages/share/share.wxss */
 
-.background-image {
-  height: 100%;
-  position: fixed;
+
+/* pages/square/square.wxss */
+
+page {
   width: 100%;
-  left: 0px;
-  top: 0px;
+  height: 100%;
+  background-color: #EFEFF4;
 }
+
+.fromVal {
+  padding-right: 30rpx;
+  text-align: right
+}
+.toVal {
+  text-align: right
+}
+
+/* .weui-cell_input {
+  display: flex;
+  justify-content: space-between;
+} */
+
+.line {
+  width:100px;
+}
+
+.infoLBL {
+  margin: 40rpx;
+  font-size: 1rem;
+  font-weight: bold; 
+  color: #444343
+}
+
+.ticketItem {
+  display: flex;
+  margin: 20rpx;
+  height: 160rpx;
+  border: 1px silver solid;
+  background-color: #ffffff;
+  justify-content: center;
+}
+
+.leftContent, .rightContent {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.leftContent {
+  margin: 20rpx 6rpx 20rpx 12rpx;
+  padding: 0 40rpx 0 10rpx; 
+  /* border-right: 1px silver solid */
+}
+
+.rightContent {
+  margin: 0 20rpx;
+  padding: 20rpx 20rpx;
+  flex: 1;
+  text-align: right;
+  vertical-align: center;
+}
+
+.leftLBL, .seats{
+  color: #868383;
+  font-size: 0.8rem;
+}
+
+.leftLBLOwner {
+  color: #868383;
+  font-size: 0.9rem;
+
+}
+
+
+
+.price {
+  /* padding-top: 6rpx; */
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #444343;
+  vertical-align: middle
+}
+
+.time{
+  font-size: 1.4rem;
+}
+
+
+
+
+.publish-btn {
+  position: fixed;
+  right: 36px;
+  bottom: 15px;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  background: #445E7F;
+  box-shadow: 0 5px 10px #888;
+}
+
+.publish-btn::before {
+  content: '+';
+  position: absolute;
+  top: -2px;
+  left: 16px;
+  color: #fff;
+  font-size: 30px;
+}
+
+
