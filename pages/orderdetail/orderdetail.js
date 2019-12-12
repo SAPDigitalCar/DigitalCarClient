@@ -121,7 +121,26 @@ Page({
     });
   },
 
-
+  sendMessage: function(orderId){
+    wx.request({
+      url: app.globalData.host + '/order/send',
+      header: {
+        openId: app.globalData.openId
+      },
+      data: {
+        "id": orderId
+      },
+      method: 'post',
+      success: res => {
+        if (res.statusCode == 200 && res.data) {
+          console.log("Order: " + orderId + " send successfully!");
+        }
+      },
+      fail: function (error) {
+        console.log("Order: " + orderId + " send failed!");
+      }
+    })
+  },
 
   tryJoin: function() {
     let that = this
@@ -139,15 +158,31 @@ Page({
           method: 'post',
           success: res => {
             if (res.statusCode == 200 && res.data) {
-              wx.switchTab({
-                url: '/pages/square/square'
-              })
-              wx.showToast({
-                title: "Seats Reserved",
-                duration: 2000,
-                icon: 'success',
-                width: 100,
-              })
+              wx.requestSubscribeMessage({
+                tmplIds: ['AMrTjuKs163p6F35h_dnd3M5NqhIkS2uRBBOoRiGADE'],
+                success(res) { 
+                  console.log("res: " + res);
+                  wx.navigateBack({
+                    delta: 1
+                  });
+                  wx.showToast({
+                    title: "Seats Reserved",
+                    duration: 2000,
+                    icon: 'success',
+                    width: 100,
+                  });
+                  that.sendMessage(that.data.ticket.id);
+                }
+              });
+              // wx.switchTab({
+              //   url: '/pages/square/square'
+              // })
+              // wx.showToast({
+              //   title: "Seats Reserved",
+              //   duration: 2000,
+              //   icon: 'success',
+              //   width: 100,
+              // })
             }
           },
           fail: function(error) {
