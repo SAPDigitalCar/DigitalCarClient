@@ -17,7 +17,8 @@ Page({
     avatarUrl: '',
     departureTime: '',
     price: '',
-    departureAddresses: null
+    departureAddresses: null,
+    isJoin: true
   },
 
   /**
@@ -28,6 +29,11 @@ Page({
       title: 'Loading',
       mask: true
     })
+    if (options.entry == 'me' ){
+      this.setData({
+        isJoin: false
+      })
+    }
     this.loadDetail(options.id);
   },
 
@@ -161,5 +167,4 @@ Page({
       }
     })
   }
-
 })

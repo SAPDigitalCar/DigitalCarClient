@@ -3,7 +3,7 @@
 
 
 <view class="page">
-  <view class="orderInfo" wx:for="{{myOrders}}" wx:key="index">
+  <view class="orderInfo" id="{{item.ticket.id}}" wx:for="{{myOrders}}" wx:key="index" bindtap='goDetail'>
     <view class="time">
     <view class="time left">
       <!--<image src="../../../images/order-start.png" class="icon"></image>-->

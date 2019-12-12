@@ -50,5 +50,7 @@
   </view>
   </view>
 
-  <button class="joinbtn" form-type="submit" bindtap="tryJoin">Join this Car</button>
+  <button wx:if="{{isJoin}}"class="joinbtn" form-type="submit" bindtap="tryJoin">Join this Car</button>
+
+  <button wx:else class="joinbtn" form-type="submit" bindtap="tryCancel">Call this Order</button>
 </view>

@@ -98,5 +98,12 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+
+  goDetail: function (e) {
+    let id = e.currentTarget.id;
+    wx.navigateTo({
+      url: '../../orderdetail/orderdetail?id=' + id + '&entry=me'
+    });
+  },
 })
