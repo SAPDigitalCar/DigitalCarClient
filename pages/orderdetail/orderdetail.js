@@ -166,5 +166,50 @@ Page({
         console.log(res.errMsg)
       }
     })
-  }
+  },
+
+  tryCancel: function () {
+    let that = this
+    wx.showActionSheet({
+      itemList: ['Cancel This Order'],
+      success(res) {
+        wx.request({
+          url: app.globalData.host + '/order/cancel',
+          header: {
+            openId: app.globalData.openId
+          },
+          data: {
+            "ticketId": that.data.ticket.id
+          },
+          method: 'post',
+          success: res => {
+            if (res.statusCode == 200 && res.data) {
+              wx.switchTab({
+                url: '/pages/square/square'
+              })
+              wx.showToast({
+                title: "Order cancelled ",
+                duration: 2000,
+                icon: 'success',
+                width: 100,
+              })
+            }
+          },
+          fail: function (error) {
+            wx.showToast({
+              title: "cancelled Failed",
+              duration: 2000,
+              icon: 'fail',
+              width: 100,
+            })
+            console.log(error);
+          }
+        });
+
+      },
+      fail(res) {
+        console.log(res.errMsg)
+      }
+    })
+  },
 })
