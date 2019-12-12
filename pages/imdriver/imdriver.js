@@ -124,7 +124,7 @@ Page({
       return;
     } else if (value.email.split('@')[1] !== 'sap.com'){
       wx.showToast({
-        title: 'Please enter company and sign up again',
+        title: 'Please enter company email and sign up again',
         duration: 2000,
         icon: 'none'
       });
@@ -136,9 +136,9 @@ Page({
         icon: 'none'
       });
       return;
-    } else if (!value.carDescription) {
+    } else if (app.globalData.isDriver &&!value.carDescription) {
       wx.showToast({
-        title: 'Please enter something to descrip your car and sign up again',
+        title: 'Please enter something to descripe your car and sign up again',
         duration: 2000,
         icon: 'none'
       });
