@@ -6,25 +6,56 @@ Page({
    * 页面的初始数据
    */
   data: {
-    myTickets: [{
-      "licensePlateNumber": "沪A12345",
-      "departureTime": "2019-12-08 18:30",
-      "departureLocation": "SAP Labs China",
-      "destination": "2号线云山路"
-    },
-    {
-      "licensePlateNumber": "沪A23456",
-      "departureTime": "2019-12-08 09:00",
-      "departureLocation": "2号线云山路",
-      "destination": "SAP Labs China"
-    }]
+    myTickets: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
+    this.getTicketList();
   },
+
+  getTicketList: function () {
+    let that = this;
+    let myOpenId = app.globalData.openId
+    wx.request({
+      url: app.globalData.host + '/ticket/list',
+      header: {
+        openId: myOpenId
+      },
+      method: 'get',
+      success: res => {
+        if (res.statusCode == 200) {
+          if (res.data.data.length == 0) {
+            wx.showToast({
+              title: "You don't have any ticket yet :)",
+              duration: 2000,
+              icon: 'none',
+            })
+          }
+          this.setData({
+            myTickets: res.data.data
+          })
+        } else {
+          wx.showToast({
+            title: '网络异常，请稍后重试',
+            duration: 10000,
+            icon: 'none'
+          })
+        }
+      },
+      fail: function (error) {
+        console.log(error)
+        wx.showToast({
+          title: '登录失败，请检查网络稍后重试',
+          duration: 2000,
+          icon: 'none'
+        })
+      }
+    });
+  },
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成
