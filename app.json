@@ -16,7 +16,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#445E7F",
-    "navigationBarTitleText": "Digital Car",
+    "navigationBarTitleText": "Car Direct",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
