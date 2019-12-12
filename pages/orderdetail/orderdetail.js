@@ -121,14 +121,26 @@ Page({
     });
   },
 
-  // sendMessage: function(){
-  //   wx.request({
-
-  //   })
-
-
-  // }
-
+  sendMessage: function(orderId){
+    wx.request({
+      url: app.globalData.host + '/order/send',
+      header: {
+        openId: app.globalData.openId
+      },
+      data: {
+        "id": orderId
+      },
+      method: 'post',
+      success: res => {
+        if (res.statusCode == 200 && res.data) {
+          console.log("Order: " + orderId + " send successfully!");
+        }
+      },
+      fail: function (error) {
+        console.log("Order: " + orderId + " send failed!");
+      }
+    })
+  },
 
   tryJoin: function() {
     let that = this
@@ -159,6 +171,7 @@ Page({
                     icon: 'success',
                     width: 100,
                   });
+                  that.sendMessage(that.data.ticket.id);
                 }
               });
               // wx.switchTab({
