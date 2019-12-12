@@ -84,27 +84,9 @@ Page({
   },
   imcustomer: function() {
     app.globalData.isDriver=false
-    wx.requestSubscribeMessage({
-      tmplIds: ['AMrTjuKs163p6F35h_dnd3M5NqhIkS2uRBBOoRiGADE'],
-      success(res) {
-        console.log(res.errMsg)
-      },
-      fail(res) {
-        console.log(res.errMsg)
-      }
-    }) 
   },
   imdriver: function () {
     app.globalData.isDriver=true
-    wx.requestSubscribeMessage({
-      tmplIds: ['AMrTjuKs163p6F35h_dnd3M5NqhIkS2uRBBOoRiGADE'],
-      success(res) {
-        console.log(res.errMsg)
-      },
-      fail(res) {
-        console.log(res.errMsg)
-      }
-    })  
   },
   bindRegionChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
